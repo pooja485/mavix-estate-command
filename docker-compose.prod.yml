@@ -1,0 +1,103 @@
+# Production deployment notes (see README.md "Deploying to production"):
+#  - Prefer a managed Postgres (RDS/Cloud SQL/etc.) over the bundled container below;
+#    swap DATABASE_URL to point at it and remove the `postgres` service + depends_on.
+#  - Put real secrets in a `.env.production` file (never commit it) and reference it
+#    with `docker compose --env-file .env.production -f docker-compose.prod.yml up -d`.
+#  - Run migrations explicitly as a release step, not automatically on every boot:
+#    `docker compose -f docker-compose.prod.yml run --rm backend npx prisma migrate deploy`
+#  - Put this whole stack behind a TLS-terminating reverse proxy / load balancer
+#    (e.g. an external nginx/Caddy, or your cloud provider's LB) — these containers
+#    only serve plain HTTP internally.
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - mavix_pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    deploy:
+      resources:
+        limits:
+          memory: 1g
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      PORT: 4000
+      DATABASE_URL: ${DATABASE_URL}
+      JWT_ACCESS_SECRET: ${JWT_ACCESS_SECRET}
+      JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET}
+      JWT_ACCESS_TTL: ${JWT_ACCESS_TTL:-15m}
+      JWT_REFRESH_TTL_DAYS: ${JWT_REFRESH_TTL_DAYS:-30}
+      CORS_ORIGINS: ${CORS_ORIGINS}
+      RATE_LIMIT_WINDOW_MS: ${RATE_LIMIT_WINDOW_MS:-900000}
+      RATE_LIMIT_MAX: ${RATE_LIMIT_MAX:-300}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      PLATFORM_ADMIN_KEY: ${PLATFORM_ADMIN_KEY}
+    expose:
+      - "4000"
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          memory: 512m
+      restart_policy:
+        condition: on-failure
+        max_attempts: 5
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - "80:8080"
+    deploy:
+      resources:
+        limits:
+          memory: 128m
+
+  # Automated daily database backups. Files land in the mavix_backups volume;
+  # copy them off-box regularly (e.g. sync to S3/GCS) since a Docker volume
+  # on the same host as your database is not a real disaster-recovery plan —
+  # it protects against accidental data corruption/deletion, not hardware loss.
+  backup:
+    image: postgres:16-alpine
+    restart: always
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      BACKUP_RETENTION_DAYS: ${BACKUP_RETENTION_DAYS:-14}
+      BACKUP_INTERVAL_HOURS: ${BACKUP_INTERVAL_HOURS:-24}
+    volumes:
+      - ./backup:/scripts:ro
+      - mavix_backups:/backups
+    entrypoint: ["sh", "/scripts/entrypoint.sh"]
+    deploy:
+      resources:
+        limits:
+          memory: 128m
+
+volumes:
+  mavix_pg_data:
+  mavix_backups:

@@ -1,0 +1,32 @@
+# TLS overlay — adds Caddy in front of your stack for automatic HTTPS.
+# Use together with docker-compose.prod.yml:
+#
+#   docker compose -f docker-compose.prod.yml -f docker-compose.tls.yml up -d --build
+#
+# This replaces the frontend's direct port 80 exposure with Caddy on 80/443,
+# which handles the Let's Encrypt certificate and forwards traffic internally.
+
+services:
+  caddy:
+    image: caddy:2-alpine
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - frontend
+
+  frontend:
+    # Remove the direct host port mapping from docker-compose.prod.yml —
+    # only Caddy should be reachable from outside now.
+    ports: []
+    expose:
+      - "8080"
+
+volumes:
+  caddy_data:
+  caddy_config:

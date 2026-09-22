@@ -1,0 +1,1979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAVIX ESTATE COMMAND — Multi-Tenant Estate ERP</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+</head>
+<body>
+<!-- LOADER -->
+<div id="loader"><div class="loader-ring"></div><div style="font-size:13px;color:var(--ts)">Loading MAVIX ESTATE COMMAND...</div></div>
+<!-- TOAST -->
+<div id="toast-wrap"></div>
+
+<!-- ========== LOGIN PAGE ========== -->
+<div id="login-page">
+  <div class="login-left">
+    <div class="login-brand">
+      <div class="login-logo">MAVIX <span>ESTATE</span></div>
+      <div class="login-tagline">Enterprise Real Estate ERP & AI Intelligence Platform</div>
+    </div>
+    <div class="login-hero">
+      <h1>Every Project.<br><span>Every Rupee.</span><br>One Command.</h1>
+      <p>Enterprise control for high-value real estate portfolios. Built for developers managing ₹100 Crore+ portfolios.</p>
+      <div class="login-stats">
+        <div class="login-stat"><div class="val">₹486 Cr</div><div class="lbl">Portfolio Value</div></div>
+        <div class="login-stat"><div class="val">648</div><div class="lbl">Total Units</div></div>
+        <div class="login-stat"><div class="val">3</div><div class="lbl">Active Projects</div></div>
+      </div>
+      <!-- SVG Buildings -->
+      <svg style="margin-top:28px;opacity:.18" width="380" height="120" viewBox="0 0 380 120">
+        <rect x="10" y="40" width="40" height="80" fill="#fff" rx="2"/>
+        <rect x="15" y="30" width="30" height="10" fill="#7EC8E3" rx="1"/>
+        <rect x="18" y="50" width="8" height="8" fill="#7EC8E3" rx="1"/><rect x="32" y="50" width="8" height="8" fill="#7EC8E3" rx="1"/>
+        <rect x="18" y="65" width="8" height="8" fill="#7EC8E3" rx="1"/><rect x="32" y="65" width="8" height="8" fill="#7EC8E3" rx="1"/>
+        <rect x="18" y="80" width="8" height="8" fill="#7EC8E3" rx="1"/><rect x="32" y="80" width="8" height="8" fill="#7EC8E3" rx="1"/>
+        <rect x="60" y="20" width="60" height="100" fill="#fff" rx="2"/>
+        <rect x="68" y="28" width="10" height="10" fill="#7EC8E3" rx="1"/><rect x="84" y="28" width="10" height="10" fill="#7EC8E3" rx="1"/><rect x="100" y="28" width="10" height="10" fill="#7EC8E3" rx="1"/>
+        <rect x="68" y="46" width="10" height="10" fill="#7EC8E3" rx="1"/><rect x="84" y="46" width="10" height="10" fill="#7EC8E3" rx="1"/><rect x="100" y="46" width="10" height="10" fill="#7EC8E3" rx="1"/>
+        <rect x="68" y="64" width="10" height="10" fill="#7EC8E3" rx="1"/><rect x="84" y="64" width="10" height="10" fill="#7EC8E3" rx="1"/><rect x="100" y="64" width="10" height="10" fill="#7EC8E3" rx="1"/>
+        <rect x="68" y="82" width="10" height="10" fill="#7EC8E3" rx="1"/><rect x="84" y="82" width="10" height="10" fill="#7EC8E3" rx="1"/><rect x="100" y="82" width="10" height="10" fill="#7EC8E3" rx="1"/>
+        <rect x="130" y="5" width="80" height="115" fill="#fff" rx="2"/>
+        <rect x="140" y="15" width="12" height="12" fill="#7EC8E3" rx="1"/><rect x="158" y="15" width="12" height="12" fill="#7EC8E3" rx="1"/><rect x="176" y="15" width="12" height="12" fill="#7EC8E3" rx="1"/>
+        <rect x="140" y="35" width="12" height="12" fill="#7EC8E3" rx="1"/><rect x="158" y="35" width="12" height="12" fill="#7EC8E3" rx="1"/><rect x="176" y="35" width="12" height="12" fill="#7EC8E3" rx="1"/>
+        <rect x="140" y="55" width="12" height="12" fill="#7EC8E3" rx="1"/><rect x="158" y="55" width="12" height="12" fill="#7EC8E3" rx="1"/><rect x="176" y="55" width="12" height="12" fill="#7EC8E3" rx="1"/>
+        <rect x="140" y="75" width="12" height="12" fill="#7EC8E3" rx="1"/><rect x="158" y="75" width="12" height="12" fill="#7EC8E3" rx="1"/><rect x="176" y="75" width="12" height="12" fill="#7EC8E3" rx="1"/>
+        <rect x="150" y="95" width="40" height="25" fill="#7EC8E3" rx="1"/>
+        <rect x="220" y="30" width="50" height="90" fill="#fff" rx="2"/>
+        <rect x="228" y="40" width="8" height="8" fill="#7EC8E3" rx="1"/><rect x="242" y="40" width="8" height="8" fill="#7EC8E3" rx="1"/><rect x="256" y="40" width="8" height="8" fill="#7EC8E3" rx="1"/>
+        <rect x="228" y="56" width="8" height="8" fill="#7EC8E3" rx="1"/><rect x="242" y="56" width="8" height="8" fill="#7EC8E3" rx="1"/><rect x="256" y="56" width="8" height="8" fill="#7EC8E3" rx="1"/>
+        <rect x="228" y="72" width="8" height="8" fill="#7EC8E3" rx="1"/><rect x="242" y="72" width="8" height="8" fill="#7EC8E3" rx="1"/><rect x="256" y="72" width="8" height="8" fill="#7EC8E3" rx="1"/>
+        <rect x="280" y="50" width="35" height="70" fill="#fff" rx="2"/>
+        <rect x="288" y="58" width="7" height="7" fill="#7EC8E3" rx="1"/><rect x="300" y="58" width="7" height="7" fill="#7EC8E3" rx="1"/>
+        <rect x="288" y="72" width="7" height="7" fill="#7EC8E3" rx="1"/><rect x="300" y="72" width="7" height="7" fill="#7EC8E3" rx="1"/>
+        <rect x="288" y="86" width="7" height="7" fill="#7EC8E3" rx="1"/><rect x="300" y="86" width="7" height="7" fill="#7EC8E3" rx="1"/>
+        <rect x="325" y="60" width="45" height="60" fill="#fff" rx="2"/>
+        <rect x="335" y="68" width="7" height="7" fill="#7EC8E3" rx="1"/><rect x="348" y="68" width="7" height="7" fill="#7EC8E3" rx="1"/><rect x="361" y="68" width="7" height="7" fill="#7EC8E3" rx="1"/>
+        <rect x="335" y="82" width="7" height="7" fill="#7EC8E3" rx="1"/><rect x="348" y="82" width="7" height="7" fill="#7EC8E3" rx="1"/><rect x="361" y="82" width="7" height="7" fill="#7EC8E3" rx="1"/>
+        <line x1="0" y1="120" x2="380" y2="120" stroke="#7EC8E3" stroke-width="2"/>
+      </svg>
+    </div>
+    <div style="font-size:11px;color:rgba(255,255,255,.3)">© 2026 MAVIX Estate Command — Aarohan Realty & Infrastructure Ltd.</div>
+  </div>
+  <div class="login-right">
+    <h2>Welcome Back</h2>
+    <p class="sub">Sign in to Aarohan Realty ERP</p>
+    <div id="login-error" class="login-error hidden">Incorrect credentials. Please try again.</div>
+    <form id="login-form" onsubmit="handleLogin(event)">
+      <div class="form-group">
+        <label class="form-label">Company Workspace</label>
+        <input class="form-input" id="li-slug" type="text" placeholder="aarohan-realty" required autocomplete="organization">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email or Employee ID</label>
+        <input class="form-input" id="li-email" type="email" placeholder="admin@aarohanrealty.com" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <div class="pw-wrap">
+          <input class="form-input" id="li-pass" type="password" placeholder="Enter password" required>
+          <button type="button" class="pw-toggle" onclick="togglePass()">👁</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Select Role</label>
+        <select class="form-select" id="li-role">
+          <option value="Super Admin">Super Admin</option>
+          <option value="Managing Director">Managing Director</option>
+          <option value="CFO">CFO</option>
+          <option value="Project Director">Project Director</option>
+          <option value="Project Manager">Project Manager</option>
+          <option value="Finance Manager">Finance Manager</option>
+          <option value="Sales Head">Sales Head</option>
+          <option value="Site Engineer">Site Engineer</option>
+          <option value="CRM Manager">CRM Manager</option>
+          <option value="Department User">Department User</option>
+        </select>
+      </div>
+      <div class="form-group flex fac" style="gap:8px">
+        <input type="checkbox" id="li-remember" checked>
+        <label for="li-remember" style="font-size:13px;cursor:pointer">Remember Me</label>
+        <span style="margin-left:auto;font-size:13px;color:var(--blue);cursor:pointer" onclick="openForgotPassword()">Forgot Password?</span>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:12px" id="login-btn">
+        <span id="login-btn-text">Sign In to Command Centre</span>
+        <span id="login-spinner" class="hidden" style="display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .6s linear infinite"></span>
+      </button>
+    </form>
+    <button class="demo-btn" onclick="fillDemo()">🚀 Use Demo Login (aarohan-realty)</button>
+    <div class="login-footer">Secured by MAVIX Enterprise Security • v3.2.1</div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="forgot-password-modal">
+  <div class="modal" style="max-width:420px">
+    <div class="modal-header"><div class="modal-title">Reset Password</div><button class="modal-close" onclick="closeModal('forgot-password-modal')">✕</button></div>
+    <div class="modal-body">
+      <div id="forgot-password-step-1">
+        <p style="font-size:13px;color:var(--ts);margin-bottom:14px">Enter your workspace and email — we'll send a reset link if an account exists.</p>
+        <form onsubmit="submitForgotPassword(event)">
+          <div class="form-group"><label class="form-label">Company Workspace</label><input class="form-input" id="fp-slug" placeholder="aarohan-realty" required></div>
+          <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" id="fp-email" required></div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Send Reset Link</button>
+        </form>
+      </div>
+      <div id="forgot-password-step-2" class="hidden">
+        <p style="font-size:13px;color:var(--success)">✅ If that account exists, a reset link has been sent. In this demo build, check the backend container logs for the link (no real email service is configured — see backend/src/utils/mailer.ts).</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== MAIN APP ========== -->
+<div id="main-app" style="display:none;flex-direction:column;min-height:100vh">
+  <!-- HEADER -->
+  <header id="header">
+    <div class="hdr-logo">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <rect width="28" height="28" rx="6" fill="#1F6F9F"/>
+        <path d="M6 22V10l8-5 8 5v12" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/>
+        <rect x="11" y="16" width="6" height="6" fill="#7EC8E3" rx="1"/>
+        <rect x="9" y="11" width="4" height="4" fill="rgba(255,255,255,.6)" rx="1"/>
+        <rect x="15" y="11" width="4" height="4" fill="rgba(255,255,255,.6)" rx="1"/>
+      </svg>
+      <div>
+        <div class="name">MAVIX <span>ESTATE</span></div>
+        <div class="sub">COMMAND CENTRE</div>
+      </div>
+    </div>
+    <div class="hdr-sep"></div>
+    <select class="hdr-sel" id="hdr-company" title="Company">
+      <option>Aarohan Realty & Infrastructure Ltd.</option>
+    </select>
+    <select class="hdr-sel" id="hdr-project" onchange="filterByProject(this.value)">
+      <option value="all">All Projects</option>
+      <option value="site-a">Aarohan Grande</option>
+      <option value="site-b">Aarohan Business Bay</option>
+      <option value="site-c">Aarohan Serenity</option>
+    </select>
+    <select class="hdr-sel" id="hdr-fy" title="Financial Year">
+      <option>FY 2025-26</option>
+      <option>FY 2024-25</option>
+    </select>
+    <div class="hdr-search">
+      <span class="hdr-search-ico">🔍</span>
+      <input type="text" placeholder="Search projects, units, customers..." id="global-search" oninput="runSearch(this.value)" autocomplete="off">
+      <div class="search-results hidden" id="search-results"></div>
+    </div>
+    <div class="hdr-actions">
+      <button class="hdr-btn" onclick="openAIChat()" title="AI Assistant">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+        AI
+      </button>
+      <button class="hdr-btn" onclick="toggleNotif()" title="Notifications">
+        🔔
+        <span class="badge-count" id="notif-count">5</span>
+      </button>
+      <button class="hdr-btn" onclick="navigateTo('company');switchInnerTab('company','approvals')" title="Pending Approvals">
+        ✅ <span id="approval-count">17</span>
+      </button>
+      <div class="profile-wrap">
+        <div style="display:flex;align-items:center;gap:8px;cursor:pointer" onclick="toggleProfileMenu()">
+          <div class="hdr-avatar" id="hdr-avatar">A</div>
+          <div class="hdr-user">
+            <div class="name" id="hdr-user-name">Arvind Rao</div>
+            <div class="role" id="hdr-user-role">Super Admin</div>
+          </div>
+        </div>
+        <div id="profile-menu">
+          <div class="profile-header-card">
+            <div class="profile-avatar-lg" id="pm-avatar">A</div>
+            <div>
+              <div style="font-weight:600;font-size:14px" id="pm-name">Arvind Rao</div>
+              <div style="font-size:12px;color:var(--ts)" id="pm-role">Managing Director</div>
+              <div style="font-size:11px;color:var(--ts)">admin@aarohanrealty.com</div>
+            </div>
+          </div>
+          <div class="profile-menu-item" onclick="navigateTo('org');closeProfileMenu()">👤 My Profile</div>
+          <div class="profile-menu-item" onclick="showToast('Settings coming soon','info');closeProfileMenu()">⚙️ Settings</div>
+          <div class="profile-menu-item" onclick="resetDemoData();closeProfileMenu()">🔄 Refresh Data</div>
+          <hr style="border:none;border-top:1px solid var(--border);margin:4px 0">
+          <div class="profile-menu-item crit" onclick="handleLogout()">🚪 Sign Out</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MODULE NAV -->
+  <nav id="module-nav">
+    <div class="mod-tab active" onclick="navigateTo('command')" id="tab-command">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      Command Centre
+    </div>
+    <div class="mod-tab" onclick="navigateTo('company')" id="tab-company">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+      Company ERP
+    </div>
+    <div class="mod-tab" onclick="navigateTo('construction')" id="tab-construction">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20M4 20V10l8-6 8 6v10"/><path d="M9 20v-5h6v5"/></svg>
+      Construction
+    </div>
+    <div class="mod-tab" onclick="navigateTo('org')" id="tab-org">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M5 21v-2a7 7 0 0114 0v2"/></svg>
+      Organization
+    </div>
+    <div class="mod-tab" onclick="navigateTo('sales')" id="tab-sales">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      Sales & CRM
+    </div>
+    <div class="mod-tab" onclick="navigateTo('finance')" id="tab-finance">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      Finance
+    </div>
+    <div class="mod-tab" onclick="navigateTo('ai')" id="tab-ai">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 015 5v1a5 5 0 01-10 0V7a5 5 0 015-5z"/><path d="M15 14H9a6 6 0 00-6 6v1h18v-1a6 6 0 00-6-6z"/></svg>
+      AI Intelligence
+    </div>
+  </nav>
+
+  <!-- NOTIFICATION PANEL -->
+  <div id="notif-panel">
+    <div class="notif-header">
+      <div style="font-size:15px;font-weight:700;color:var(--tp)">Notifications <span id="notif-badge" style="background:var(--crit);color:#fff;font-size:11px;padding:2px 7px;border-radius:20px;margin-left:6px">5</span></div>
+      <button class="btn btn-sm btn-outline" onclick="markAllRead()">Mark All Read</button>
+    </div>
+    <div style="padding:8px 12px;border-bottom:1px solid var(--border);display:flex;gap:6px;flex-wrap:wrap" id="notif-filters">
+      <button class="btn btn-sm btn-primary" onclick="filterNotif('all',this)">All</button>
+      <button class="btn btn-sm btn-outline" onclick="filterNotif('finance',this)">Finance</button>
+      <button class="btn btn-sm btn-outline" onclick="filterNotif('construction',this)">Construction</button>
+      <button class="btn btn-sm btn-outline" onclick="filterNotif('sales',this)">Sales</button>
+      <button class="btn btn-sm btn-outline" onclick="filterNotif('ai',this)">AI Alert</button>
+    </div>
+    <div class="notif-list" id="notif-list"></div>
+  </div>
+
+  <!-- CONTENT AREA -->
+  <div id="content-area">
+
+    <!-- ========== COMMAND CENTRE ========== -->
+    <div class="page active" id="page-command">
+      <div class="page-header" style="display:flex;align-items:flex-start;justify-content:space-between">
+        <div>
+          <div id="cc-greeting" class="fs24 bolder" style="color:var(--navy)">Good Morning, Managing Director</div>
+          <div class="ts mt8" style="font-size:13px">Consolidated operating position — <strong style="color:var(--tp)">Aarohan Realty & Infrastructure Ltd.</strong></div>
+          <div id="live-datetime" style="font-size:12px;color:var(--ts);margin-top:4px"></div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <button class="btn btn-outline btn-sm" onclick="exportReport()">📊 Export Report</button>
+          <button class="btn btn-primary btn-sm" onclick="navigateTo('ai')">🤖 AI Brief</button>
+        </div>
+      </div>
+
+      <!-- KPI Grid -->
+      <div class="kpi-grid" id="kpi-grid">
+        <div class="kpi-card info"><div class="kpi-label">Portfolio Value</div><div class="kpi-value">₹486.40 Cr</div><div class="kpi-change kpi-up">↑ 2.3% vs last month</div><canvas class="kpi-sparkline" id="sp1" height="30"></canvas></div>
+        <div class="kpi-card"><div class="kpi-label">Project Cost</div><div class="kpi-value">₹312.75 Cr</div><div class="kpi-change kpi-neutral">→ On Budget</div><canvas class="kpi-sparkline" id="sp2" height="30"></canvas></div>
+        <div class="kpi-card success"><div class="kpi-label">Booking Value</div><div class="kpi-value">₹321.80 Cr</div><div class="kpi-change kpi-up">↑ ₹18.65 Cr this month</div><canvas class="kpi-sparkline" id="sp3" height="30"></canvas></div>
+        <div class="kpi-card success"><div class="kpi-label">Amount Collected</div><div class="kpi-value">₹204.65 Cr</div><div class="kpi-change kpi-up">↑ ₹14.28 Cr this month</div><canvas class="kpi-sparkline" id="sp4" height="30"></canvas></div>
+        <div class="kpi-card warn"><div class="kpi-label">Pending Receivables</div><div class="kpi-value">₹117.15 Cr</div><div class="kpi-change kpi-down">↑ 3.1% overdue growth</div><canvas class="kpi-sparkline" id="sp5" height="30"></canvas></div>
+        <div class="kpi-card warn"><div class="kpi-label">Vendor Payable</div><div class="kpi-value">₹28.42 Cr</div><div class="kpi-change kpi-neutral">→ Within 30 days</div><canvas class="kpi-sparkline" id="sp6" height="30"></canvas></div>
+        <div class="kpi-card success"><div class="kpi-label">Cash & Bank</div><div class="kpi-value">₹34.86 Cr</div><div class="kpi-change kpi-up">↑ ₹4.46 Cr net inflow</div><canvas class="kpi-sparkline" id="sp7" height="30"></canvas></div>
+        <div class="kpi-card info"><div class="kpi-label">RERA Account</div><div class="kpi-value">₹51.27 Cr</div><div class="kpi-change kpi-neutral">→ Across 3 projects</div><canvas class="kpi-sparkline" id="sp8" height="30"></canvas></div>
+        <div class="kpi-card success"><div class="kpi-label">Physical Progress</div><div class="kpi-value">57.8%</div><div class="kpi-change kpi-up">↑ 3.2% this month</div><div class="progress-bar mt8"><div class="progress-fill success" style="width:57.8%"></div></div></div>
+        <div class="kpi-card info"><div class="kpi-label">Financial Progress</div><div class="kpi-value">61.4%</div><div class="kpi-change kpi-up">↑ 2.8% this month</div><div class="progress-bar mt8"><div class="progress-fill blue" style="width:61.4%"></div></div></div>
+        <div class="kpi-card success"><div class="kpi-label">Projected Margin</div><div class="kpi-value">₹93.15 Cr</div><div class="kpi-change kpi-up">↑ 18.5% ROI</div><canvas class="kpi-sparkline" id="sp11" height="30"></canvas></div>
+        <div class="kpi-card warn"><div class="kpi-label">Active Approvals</div><div class="kpi-value" id="kpi-approvals">17</div><div class="kpi-change kpi-down">⚠ Action Required</div></div>
+      </div>
+
+      <!-- Site Cards -->
+      <div class="card-title mb12" style="font-size:16px;font-weight:700;color:var(--tp)">Project & Site Overview</div>
+      <div class="site-grid">
+        <!-- Site A -->
+        <div class="site-card" onclick="selectProject('site-a')">
+          <div class="site-card-header">
+            <div><span class="site-badge on-track">● On Track</span></div>
+            <div class="site-name">Aarohan Grande</div>
+            <div class="site-loc">📍 Kharadi, Pune &nbsp;|&nbsp; Premium Residential &nbsp;|&nbsp; 4 Towers</div>
+          </div>
+          <div class="site-card-body">
+            <div class="site-progress-wrap">
+              <div class="site-circle">
+                <svg width="70" height="70" viewBox="0 0 70 70">
+                  <circle cx="35" cy="35" r="30" fill="none" stroke="#E5EBF0" stroke-width="7"/>
+                  <circle cx="35" cy="35" r="30" fill="none" stroke="#15805D" stroke-width="7" stroke-dasharray="188.5" stroke-dashoffset="60.3" stroke-linecap="round"/>
+                </svg>
+                <div class="site-circle-text">68%</div>
+              </div>
+              <div class="site-metrics">
+                <div class="site-metric"><span class="lbl">Financial Progress</span><span class="val" style="color:var(--success)">71%</span></div>
+                <div class="progress-bar mb8"><div class="progress-fill success" style="width:71%"></div></div>
+                <div class="site-metric"><span class="lbl">Completion</span><span class="val">Dec 2027</span></div>
+                <div class="site-metric"><span class="lbl">Manager</span><span class="val">Rohan Kulkarni</span></div>
+              </div>
+            </div>
+            <div class="site-units">
+              <div class="unit-stat"><div class="num">288</div><div class="lbl">Total</div></div>
+              <div class="unit-stat" style="background:#E8F5F0"><div class="num" style="color:var(--success)">214</div><div class="lbl">Booked</div></div>
+              <div class="unit-stat" style="background:#EAF4FA"><div class="num" style="color:var(--blue)">62</div><div class="lbl">Available</div></div>
+              <div class="unit-stat" style="background:#FDF3DC"><div class="num" style="color:var(--warn)">7</div><div class="lbl">Blocked</div></div>
+            </div>
+            <div class="flex fsb" style="font-size:12px;color:var(--ts)">
+              <span>💰 Collected: <strong style="color:var(--tp)">₹94.25 Cr</strong></span>
+              <span>⚠ Pending: <strong style="color:var(--warn)">₹48.80 Cr</strong></span>
+            </div>
+            <div class="flex fac" style="gap:8px;margin-top:8px;font-size:12px">
+              <span>👷 284 Workers</span>
+              <span class="badge badge-warn">🚨 7 Issues</span>
+              <span>Stage: Superstructure</span>
+            </div>
+          </div>
+          <div class="site-card-footer">
+            <button class="btn btn-outline btn-sm" onclick="event.stopPropagation();navigateTo('company');showProjectDetail('site-a')">View Details</button>
+            <button class="btn btn-primary btn-sm" onclick="event.stopPropagation();navigateTo('construction');setConstrProject('site-a')">Open Site ERP</button>
+          </div>
+        </div>
+
+        <!-- Site B -->
+        <div class="site-card" onclick="selectProject('site-b')">
+          <div class="site-card-header">
+            <div><span class="site-badge attention">⚠ Attention Required</span></div>
+            <div class="site-name">Aarohan Business Bay</div>
+            <div class="site-loc">📍 Baner, Pune &nbsp;|&nbsp; Commercial Development &nbsp;|&nbsp; 2 Towers</div>
+          </div>
+          <div class="site-card-body">
+            <div class="site-progress-wrap">
+              <div class="site-circle">
+                <svg width="70" height="70" viewBox="0 0 70 70">
+                  <circle cx="35" cy="35" r="30" fill="none" stroke="#E5EBF0" stroke-width="7"/>
+                  <circle cx="35" cy="35" r="30" fill="none" stroke="#D89414" stroke-width="7" stroke-dasharray="188.5" stroke-dashoffset="90.5" stroke-linecap="round"/>
+                </svg>
+                <div class="site-circle-text">52%</div>
+              </div>
+              <div class="site-metrics">
+                <div class="site-metric"><span class="lbl">Financial Progress</span><span class="val" style="color:var(--warn)">58%</span></div>
+                <div class="progress-bar mb8"><div class="progress-fill warn" style="width:58%"></div></div>
+                <div class="site-metric"><span class="lbl">Completion</span><span class="val">Jun 2028</span></div>
+                <div class="site-metric"><span class="lbl">Manager</span><span class="val">Sneha Deshmukh</span></div>
+              </div>
+            </div>
+            <div class="site-units">
+              <div class="unit-stat"><div class="num">160</div><div class="lbl">Total</div></div>
+              <div class="unit-stat" style="background:#E8F5F0"><div class="num" style="color:var(--success)">103</div><div class="lbl">Booked</div></div>
+              <div class="unit-stat" style="background:#EAF4FA"><div class="num" style="color:var(--blue)">49</div><div class="lbl">Available</div></div>
+              <div class="unit-stat" style="background:#FDF3DC"><div class="num" style="color:var(--warn)">6</div><div class="lbl">Blocked</div></div>
+            </div>
+            <div class="flex fsb" style="font-size:12px;color:var(--ts)">
+              <span>💰 Collected: <strong style="color:var(--tp)">₹72.40 Cr</strong></span>
+              <span>⚠ Pending: <strong style="color:var(--warn)">₹35.65 Cr</strong></span>
+            </div>
+            <div class="flex fac" style="gap:8px;margin-top:8px;font-size:12px">
+              <span>👷 196 Workers</span>
+              <span class="badge badge-crit">🚨 11 Issues</span>
+              <span>Stage: Structural Work</span>
+            </div>
+          </div>
+          <div class="site-card-footer">
+            <button class="btn btn-outline btn-sm" onclick="event.stopPropagation();navigateTo('company');showProjectDetail('site-b')">View Details</button>
+            <button class="btn btn-primary btn-sm" onclick="event.stopPropagation();navigateTo('construction');setConstrProject('site-b')">Open Site ERP</button>
+          </div>
+        </div>
+
+        <!-- Site C -->
+        <div class="site-card" onclick="selectProject('site-c')">
+          <div class="site-card-header">
+            <div><span class="site-badge delayed">🔴 Delayed</span></div>
+            <div class="site-name">Aarohan Serenity</div>
+            <div class="site-loc">📍 Wakad, Pune &nbsp;|&nbsp; Mid-Premium Residential &nbsp;|&nbsp; 3 Towers</div>
+          </div>
+          <div class="site-card-body">
+            <div class="site-progress-wrap">
+              <div class="site-circle">
+                <svg width="70" height="70" viewBox="0 0 70 70">
+                  <circle cx="35" cy="35" r="30" fill="none" stroke="#E5EBF0" stroke-width="7"/>
+                  <circle cx="35" cy="35" r="30" fill="none" stroke="#C84A4A" stroke-width="7" stroke-dasharray="188.5" stroke-dashoffset="114.9" stroke-linecap="round"/>
+                </svg>
+                <div class="site-circle-text">39%</div>
+              </div>
+              <div class="site-metrics">
+                <div class="site-metric"><span class="lbl">Financial Progress</span><span class="val" style="color:var(--crit)">43%</span></div>
+                <div class="progress-bar mb8"><div class="progress-fill crit" style="width:43%"></div></div>
+                <div class="site-metric"><span class="lbl">Completion</span><span class="val">Mar 2029</span></div>
+                <div class="site-metric"><span class="lbl">Manager</span><span class="val">Aditya Joshi</span></div>
+              </div>
+            </div>
+            <div class="site-units">
+              <div class="unit-stat"><div class="num">200</div><div class="lbl">Total</div></div>
+              <div class="unit-stat" style="background:#E8F5F0"><div class="num" style="color:var(--success)">104</div><div class="lbl">Booked</div></div>
+              <div class="unit-stat" style="background:#EAF4FA"><div class="num" style="color:var(--blue)">85</div><div class="lbl">Available</div></div>
+              <div class="unit-stat" style="background:#FDF3DC"><div class="num" style="color:var(--warn)">5</div><div class="lbl">Blocked</div></div>
+            </div>
+            <div class="flex fsb" style="font-size:12px;color:var(--ts)">
+              <span>💰 Collected: <strong style="color:var(--tp)">₹38.00 Cr</strong></span>
+              <span>⚠ Pending: <strong style="color:var(--crit)">₹32.70 Cr</strong></span>
+            </div>
+            <div class="flex fac" style="gap:8px;margin-top:8px;font-size:12px">
+              <span>👷 143 Workers</span>
+              <span class="badge badge-crit">🚨 14 Issues</span>
+              <span>Stage: Podium/Structural</span>
+            </div>
+          </div>
+          <div class="site-card-footer">
+            <button class="btn btn-outline btn-sm" onclick="event.stopPropagation();navigateTo('company');showProjectDetail('site-c')">View Details</button>
+            <button class="btn btn-primary btn-sm" onclick="event.stopPropagation();navigateTo('construction');setConstrProject('site-c')">Open Site ERP</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Row 1 -->
+      <div class="chart-grid2 mt16">
+        <div class="chart-card">
+          <div class="chart-header"><span class="chart-title">Monthly Inflow vs Outflow (₹ Cr)</span><select class="form-select" style="width:auto;padding:4px 8px;font-size:12px"><option>Last 6 Months</option></select></div>
+          <div class="chart-body"><canvas id="chart-cashflow" height="180"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-header"><span class="chart-title">Sales Bookings — Last 6 Months</span></div>
+          <div class="chart-body"><canvas id="chart-bookings" height="180"></canvas></div>
+        </div>
+      </div>
+
+      <div class="chart-grid3 mt16">
+        <div class="chart-card">
+          <div class="chart-header"><span class="chart-title">Project Cost vs Budget</span></div>
+          <div class="chart-body"><canvas id="chart-cost" height="180"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-header"><span class="chart-title">Physical vs Financial Progress</span></div>
+          <div class="chart-body"><canvas id="chart-progress" height="180"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-header"><span class="chart-title">Receivables Ageing</span></div>
+          <div class="chart-body"><canvas id="chart-ageing" height="180"></canvas></div>
+        </div>
+      </div>
+
+      <!-- Bottom Row: Org + AI -->
+      <div class="grid2 mt16">
+        <!-- Org Snapshot -->
+        <div class="card">
+          <div class="card-header"><div class="card-title">Organization Snapshot</div><button class="btn btn-ghost btn-sm" onclick="navigateTo('org')">View Full →</button></div>
+          <div class="card-body">
+            <div class="grid2 mb12">
+              <div class="highlight-box"><div class="fs28 bolder" style="color:var(--navy)">186</div><div class="ts fs12">Total Employees</div></div>
+              <div class="highlight-box"><div class="fs28 bolder" style="color:var(--success)">171</div><div class="ts fs12">Present Today</div></div>
+            </div>
+            <div class="info-row"><span class="lbl">Corporate Office</span><span class="val">62 employees</span></div>
+            <div class="info-row"><span class="lbl">Site Deployment</span><span class="val">124 employees</span></div>
+            <div class="info-row"><span class="lbl">On Leave Today</span><span class="val" style="color:var(--warn)">9</span></div>
+            <div class="info-row"><span class="lbl">Absent Today</span><span class="val" style="color:var(--crit)">6</span></div>
+            <div class="info-row"><span class="lbl">Open Tasks</span><span class="val" style="color:var(--info)">148</span></div>
+            <div class="info-row"><span class="lbl">Overdue Tasks</span><span class="val" style="color:var(--crit)">23</span></div>
+            <div class="info-row"><span class="lbl">Departments</span><span class="val">17</span></div>
+          </div>
+        </div>
+
+        <!-- AI Operations -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">🤖 AI Operations Live</div>
+            <span class="ai-live"><span class="ai-live-dot"></span>All Systems Active</span>
+          </div>
+          <div class="card-body">
+            <div class="ai-status-row">
+              <span class="ai-status-name">🧠 AI Enquiry Agent</span>
+              <span class="badge badge-success">● Active</span>
+            </div>
+            <div class="ai-status-row">
+              <span class="ai-status-name">💬 AI Collection Reminder</span>
+              <span class="badge badge-success">● Active</span>
+            </div>
+            <div class="ai-status-row">
+              <span class="ai-status-name">🏗 AI Site Delay Detection</span>
+              <span class="badge badge-success">● Active</span>
+            </div>
+            <div class="ai-status-row">
+              <span class="ai-status-name">🔍 AI Expense Anomaly Scanner</span>
+              <span class="badge badge-warn">⚠ 3 Flags Today</span>
+            </div>
+            <div class="ai-status-row">
+              <span class="ai-status-name">📦 AI Material Shortage Predictor</span>
+              <span class="badge badge-warn">⚠ 2 Alerts</span>
+            </div>
+            <div class="ai-status-row">
+              <span class="ai-status-name">🏢 AI Vendor Risk Monitor</span>
+              <span class="badge badge-success">● Active</span>
+            </div>
+            <div class="ai-status-row">
+              <span class="ai-status-name">📋 AI Daily Management Brief</span>
+              <span class="badge badge-info">Generated 8:30 AM</span>
+            </div>
+            <div class="highlight-box mt12" style="font-size:12px;line-height:1.8">
+              📨 43 enquiries handled &nbsp;|&nbsp; 🎯 17 leads qualified<br>
+              📅 11 site visits scheduled &nbsp;|&nbsp; 💌 28 payment reminders<br>
+              💰 ₹42.50L dues followed up &nbsp;|&nbsp; 🚩 3 anomalies flagged
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== COMPANY ERP ========== -->
+    <div class="page" id="page-company">
+      <div class="page-header"><div class="page-title">Company ERP</div><div class="page-sub">Aarohan Realty & Infrastructure Ltd. — Corporate Operations</div></div>
+      <div class="inner-tabs" id="company-tabs">
+        <div class="inner-tab active" onclick="switchInnerTab('company','overview')">Overview</div>
+        <div class="inner-tab" onclick="switchInnerTab('company','portfolio')">Project Portfolio</div>
+        <div class="inner-tab" onclick="switchInnerTab('company','approvals')">Approvals <span id="appr-tab-cnt" style="background:var(--crit);color:#fff;font-size:10px;padding:1px 6px;border-radius:10px;margin-left:3px">17</span></div>
+        <div class="inner-tab" onclick="switchInnerTab('company','legal')">Legal & Compliance</div>
+        <div class="inner-tab" onclick="switchInnerTab('company','vendors')">Vendor Management</div>
+        <div class="inner-tab" onclick="switchInnerTab('company','procurement')">Procurement</div>
+        <div class="inner-tab" onclick="switchInnerTab('company','documents')">Documents</div>
+        <div class="inner-tab" onclick="switchInnerTab('company','reports')">Reports</div>
+        <div class="inner-tab" onclick="switchInnerTab('company','audit')">Audit Trail</div>
+      </div>
+
+      <!-- Overview -->
+      <div class="inner-content active" id="company-overview">
+        <div class="grid4 mb16">
+          <div class="kpi-card success"><div class="kpi-label">Total Revenue</div><div class="kpi-value">₹204.65 Cr</div><div class="kpi-change kpi-up">↑ 12.4% YoY</div></div>
+          <div class="kpi-card"><div class="kpi-label">Operating Expenses</div><div class="kpi-value">₹16.84 Cr</div><div class="kpi-change kpi-neutral">→ Within budget</div></div>
+          <div class="kpi-card warn"><div class="kpi-label">Pending Approvals</div><div class="kpi-value" id="co-approvals">17</div><div class="kpi-change kpi-down">⚠ Action needed</div></div>
+          <div class="kpi-card info"><div class="kpi-label">Key Compliance</div><div class="kpi-value">3 Expiring</div><div class="kpi-change kpi-down">⚠ Review required</div></div>
+        </div>
+        <div class="grid3">
+          <div class="card" style="grid-column:span 2">
+            <div class="card-header"><div class="card-title">Monthly P&L Summary</div></div>
+            <div class="card-body"><canvas id="chart-pl" height="200"></canvas></div>
+          </div>
+          <div class="card">
+            <div class="card-header"><div class="card-title">Key Risks</div></div>
+            <div class="card-body">
+              <div class="ai-alert crit mb8"><div class="ai-alert-icon">🔴</div><div><div class="ai-alert-title">Site C Delay Risk</div><div class="ai-alert-body">12-day projected delay affecting Q1 2029 handover</div></div></div>
+              <div class="ai-alert warn mb8"><div class="ai-alert-icon">⚠</div><div><div class="ai-alert-title">Collection Lag</div><div class="ai-alert-body">₹24.8 Cr overdue >60 days across projects</div></div></div>
+              <div class="ai-alert mb8"><div class="ai-alert-icon">ℹ</div><div><div class="ai-alert-title">RERA Withdrawal Pending</div><div class="ai-alert-body">₹4.85 Cr withdrawal awaiting compliance clearance</div></div></div>
+              <div class="ai-alert success"><div class="ai-alert-icon">✅</div><div><div class="ai-alert-title">Site A On Track</div><div class="ai-alert-body">68% physical progress, 71% financial — performing well</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Portfolio -->
+      <div class="inner-content" id="company-portfolio">
+        <div class="table-actions">
+          <input type="text" class="tbl-search" placeholder="Search projects..." oninput="filterTable('portfolio-tbl',this.value)">
+          <button class="btn btn-outline btn-sm" onclick="exportCSV('portfolio')">📥 Export CSV</button>
+          <button class="btn btn-primary btn-sm" onclick="showToast('New project creation requires Super Admin setup','info')">+ New Project</button>
+        </div>
+        <div class="table-wrap">
+          <table id="portfolio-tbl">
+            <thead><tr><th>Project</th><th>Type</th><th>Total Value</th><th>Cost Budget</th><th>Physical%</th><th>Financial%</th><th>Units</th><th>Booked</th><th>Collected</th><th>Pending</th><th>Completion</th><th>Status</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Aarohan Grande</strong><br><small class="ts">Kharadi, Pune</small></td><td>Premium Residential</td><td>₹218.60 Cr</td><td>₹139.40 Cr</td><td><div style="display:flex;align-items:center;gap:6px"><div class="progress-bar" style="width:60px"><div class="progress-fill success" style="width:68%"></div></div>68%</div></td><td><div style="display:flex;align-items:center;gap:6px"><div class="progress-bar" style="width:60px"><div class="progress-fill blue" style="width:71%"></div></div>71%</div></td><td>288</td><td>214</td><td>₹94.25 Cr</td><td>₹48.80 Cr</td><td>Dec 2027</td><td><span class="badge badge-success">On Track</span></td><td><button class="btn btn-ghost btn-sm" onclick="showProjectDetail('site-a')">View</button></td></tr>
+              <tr><td><strong>Aarohan Business Bay</strong><br><small class="ts">Baner, Pune</small></td><td>Commercial</td><td>₹174.80 Cr</td><td>₹111.25 Cr</td><td><div style="display:flex;align-items:center;gap:6px"><div class="progress-bar" style="width:60px"><div class="progress-fill warn" style="width:52%"></div></div>52%</div></td><td><div style="display:flex;align-items:center;gap:6px"><div class="progress-bar" style="width:60px"><div class="progress-fill warn" style="width:58%"></div></div>58%</div></td><td>160</td><td>103</td><td>₹72.40 Cr</td><td>₹35.65 Cr</td><td>Jun 2028</td><td><span class="badge badge-warn">Attention</span></td><td><button class="btn btn-ghost btn-sm" onclick="showProjectDetail('site-b')">View</button></td></tr>
+              <tr><td><strong>Aarohan Serenity</strong><br><small class="ts">Wakad, Pune</small></td><td>Mid-Premium Residential</td><td>₹93.00 Cr</td><td>₹62.10 Cr</td><td><div style="display:flex;align-items:center;gap:6px"><div class="progress-bar" style="width:60px"><div class="progress-fill crit" style="width:39%"></div></div>39%</div></td><td><div style="display:flex;align-items:center;gap:6px"><div class="progress-bar" style="width:60px"><div class="progress-fill crit" style="width:43%"></div></div>43%</div></td><td>200</td><td>104</td><td>₹38.00 Cr</td><td>₹32.70 Cr</td><td>Mar 2029</td><td><span class="badge badge-crit">Delayed</span></td><td><button class="btn btn-ghost btn-sm" onclick="showProjectDetail('site-c')">View</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Approvals -->
+      <div class="inner-content" id="company-approvals">
+        <div class="flex fsb mb16">
+          <div class="card-title">Pending Approvals <span style="background:var(--crit);color:#fff;font-size:11px;padding:2px 8px;border-radius:20px;margin-left:6px" id="appr-live-cnt">17</span></div>
+          <button class="btn btn-outline btn-sm" onclick="exportCSV('approvals')">📥 Export</button>
+        </div>
+        <div id="approvals-list"></div>
+      </div>
+
+      <!-- Legal -->
+      <div class="inner-content" id="company-legal">
+        <div class="table-actions mb12">
+          <div class="card-title">Legal & Compliance Register</div>
+          <button class="btn btn-primary btn-sm" onclick="showToast('Document upload interface opened','info')">+ Upload Document</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Document</th><th>Project</th><th>Authority</th><th>Issue Date</th><th>Expiry Date</th><th>Status</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr><td>RERA Registration</td><td>Aarohan Grande</td><td>MahaRERA</td><td>15 Jan 2023</td><td>31 Dec 2027</td><td><span class="badge badge-success">Valid</span></td><td><button class="btn btn-ghost btn-sm" onclick="showToast('Document opened','info')">View</button></td></tr>
+              <tr><td>RERA Registration</td><td>Business Bay</td><td>MahaRERA</td><td>03 Apr 2023</td><td>30 Jun 2028</td><td><span class="badge badge-success">Valid</span></td><td><button class="btn btn-ghost btn-sm" onclick="showToast('Document opened','info')">View</button></td></tr>
+              <tr><td>RERA Registration</td><td>Aarohan Serenity</td><td>MahaRERA</td><td>18 Sep 2023</td><td>31 Mar 2029</td><td><span class="badge badge-success">Valid</span></td><td><button class="btn btn-ghost btn-sm" onclick="showToast('Document opened','info')">View</button></td></tr>
+              <tr><td>Environmental Clearance</td><td>Aarohan Grande</td><td>MoEF</td><td>22 Nov 2022</td><td>22 Nov 2027</td><td><span class="badge badge-warn">Expiring Soon</span></td><td><button class="btn btn-ghost btn-sm" onclick="showToast('Renewal initiated','info')">Renew</button></td></tr>
+              <tr><td>Building Plan Approval</td><td>Business Bay</td><td>PMC</td><td>14 Mar 2023</td><td>14 Mar 2026</td><td><span class="badge badge-crit">Expiring Soon</span></td><td><button class="btn btn-ghost btn-sm" onclick="showToast('Renewal in process','warn')">Renew</button></td></tr>
+              <tr><td>Fire NOC</td><td>Aarohan Grande</td><td>CFO Pune</td><td>05 Jun 2024</td><td>05 Jun 2026</td><td><span class="badge badge-warn">Expiring Soon</span></td><td><button class="btn btn-ghost btn-sm" onclick="showToast('Renewal submitted','info')">View</button></td></tr>
+              <tr><td>Insurance — Project</td><td>All Projects</td><td>HDFC ERGO</td><td>01 Apr 2025</td><td>31 Mar 2026</td><td><span class="badge badge-warn">Pending Renewal</span></td><td><button class="btn btn-ghost btn-sm" onclick="showToast('Insurance renewal pending','warn')">Renew</button></td></tr>
+              <tr><td>Commencement Certificate</td><td>Aarohan Serenity</td><td>PMRDA</td><td>—</td><td>—</td><td><span class="badge badge-navy">Pending</span></td><td><button class="btn btn-ghost btn-sm" onclick="showToast('Application submitted','info')">Track</button></td></tr>
+              <tr><td>Occupancy Certificate</td><td>Aarohan Grande T1</td><td>PMC</td><td>—</td><td>—</td><td><span class="badge badge-grey">Not Applied</span></td><td><button class="btn btn-ghost btn-sm" onclick="showToast('OC application will be ready after 90% completion','info')">Info</button></td></tr>
+              <tr><td>Land Title — Kharadi</td><td>Aarohan Grande</td><td>Sub-Registrar</td><td>12 Aug 2021</td><td>Perpetual</td><td><span class="badge badge-success">Clear</span></td><td><button class="btn btn-ghost btn-sm" onclick="showToast('Title document opened','info')">View</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Vendors -->
+      <div class="inner-content" id="company-vendors">
+        <div class="table-actions mb12">
+          <input type="text" class="tbl-search" placeholder="Search vendors..." oninput="filterTable('vendor-tbl',this.value)">
+          <button class="btn btn-primary btn-sm" onclick="openModal('vendor-modal')">+ Add Vendor</button>
+          <button class="btn btn-outline btn-sm" onclick="exportCSV('vendors')">📥 Export</button>
+        </div>
+        <div class="table-wrap">
+          <table id="vendor-tbl">
+            <thead><tr><th>Vendor Code</th><th>Vendor</th><th>Category</th><th>Projects</th><th>Purchase Value</th><th>Outstanding</th><th>Quality Score</th><th>Risk</th><th>Action</th></tr></thead>
+            <tbody id="vendor-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Procurement -->
+      <div class="inner-content" id="company-procurement">
+        <div class="grid4 mb16">
+          <div class="kpi-card"><div class="kpi-label">Open POs</div><div class="kpi-value">24</div></div>
+          <div class="kpi-card warn"><div class="kpi-label">POs Pending Approval</div><div class="kpi-value">7</div></div>
+          <div class="kpi-card success"><div class="kpi-label">This Month PO Value</div><div class="kpi-value">₹8.42 Cr</div></div>
+          <div class="kpi-card"><div class="kpi-label">Delivered GRNs</div><div class="kpi-value">18</div></div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>PO No.</th><th>Vendor</th><th>Material</th><th>Project</th><th>Value</th><th>Date</th><th>Delivery</th><th>Status</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr><td>PO-2026-0284</td><td>Tata Steel Ltd.</td><td>TMT Steel Fe500</td><td>Site A</td><td>₹42.80 L</td><td>12 Jun 2026</td><td>25 Jun 2026</td><td><span class="badge badge-warn">Pending Approval</span></td><td><button class="btn btn-ghost btn-sm" onclick="showToast('PO details opened','info')">View</button></td></tr>
+              <tr><td>PO-2026-0283</td><td>UltraTech Cement</td><td>OPC 53 Grade Cement</td><td>Site B</td><td>₹18.60 L</td><td>10 Jun 2026</td><td>18 Jun 2026</td><td><span class="badge badge-success">Delivered</span></td><td><button class="btn btn-ghost btn-sm" onclick="showToast('PO details opened','info')">View</button></td></tr>
+              <tr><td>PO-2026-0282</td><td>Prime Aluminium</td><td>Aluminium Sections</td><td>Site A</td><td>₹32.40 L</td><td>08 Jun 2026</td><td>30 Jun 2026</td><td><span class="badge badge-info">In Transit</span></td><td><button class="btn btn-ghost btn-sm" onclick="showToast('PO details opened','info')">View</button></td></tr>
+              <tr><td>PO-2026-0281</td><td>AquaFlow Plumbing</td><td>CPVC Pipes & Fittings</td><td>Site C</td><td>₹9.85 L</td><td>05 Jun 2026</td><td>15 Jun 2026</td><td><span class="badge badge-success">Delivered</span></td><td><button class="btn btn-ghost btn-sm" onclick="showToast('PO details opened','info')">View</button></td></tr>
+              <tr><td>PO-2026-0280</td><td>Spark Electricals</td><td>LT Power Cables</td><td>Site B</td><td>₹24.70 L</td><td>02 Jun 2026</td><td>20 Jun 2026</td><td><span class="badge badge-warn">Partial</span></td><td><button class="btn btn-ghost btn-sm" onclick="showToast('PO details opened','info')">View</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Documents -->
+      <div class="inner-content" id="company-documents">
+        <div class="grid3">
+          <div class="card cur" onclick="showToast('RERA Registration documents opened','info')"><div class="card-body" style="text-align:center;padding:28px"><div style="font-size:36px;margin-bottom:8px">📁</div><div class="bold">RERA Documents</div><div class="ts fs12 mt8">Registration, Extensions, Reports</div><div class="badge badge-navy mt8">12 files</div></div></div>
+          <div class="card cur" onclick="showToast('Legal documents opened','info')"><div class="card-body" style="text-align:center;padding:28px"><div style="font-size:36px;margin-bottom:8px">⚖️</div><div class="bold">Legal & Title</div><div class="ts fs12 mt8">Land title, agreements, NOCs</div><div class="badge badge-navy mt8">28 files</div></div></div>
+          <div class="card cur" onclick="showToast('Financial documents opened','info')"><div class="card-body" style="text-align:center;padding:28px"><div style="font-size:36px;margin-bottom:8px">💼</div><div class="bold">Finance Documents</div><div class="ts fs12 mt8">Audit reports, bank docs, tax</div><div class="badge badge-navy mt8">45 files</div></div></div>
+          <div class="card cur" onclick="showToast('Drawing documents opened','info')"><div class="card-body" style="text-align:center;padding:28px"><div style="font-size:36px;margin-bottom:8px">📐</div><div class="bold">Drawings & Approvals</div><div class="ts fs12 mt8">Architectural, structural, MEP</div><div class="badge badge-navy mt8">186 files</div></div></div>
+          <div class="card cur" onclick="showToast('Contracts opened','info')"><div class="card-body" style="text-align:center;padding:28px"><div style="font-size:36px;margin-bottom:8px">📝</div><div class="bold">Contracts & Agreements</div><div class="ts fs12 mt8">Vendor, contractor, customer</div><div class="badge badge-navy mt8">64 files</div></div></div>
+          <div class="card cur" onclick="showToast('Insurance documents opened','info')"><div class="card-body" style="text-align:center;padding:28px"><div style="font-size:36px;margin-bottom:8px">🛡️</div><div class="bold">Insurance</div><div class="ts fs12 mt8">Project, workmen, property</div><div class="badge badge-navy mt8">8 files</div></div></div>
+        </div>
+      </div>
+
+      <!-- Reports -->
+      <div class="inner-content" id="company-reports">
+        <div class="grid3">
+          <div class="card cur" onclick="showReportModal('Executive Business Report')"><div class="card-body" style="padding:20px"><div class="bold mb8">📊 Executive Business Report</div><div class="ts fs12">Complete company performance summary</div><div class="flex gap8 mt12"><button class="btn btn-primary btn-sm" onclick="event.stopPropagation();printReport()">🖨 Print</button><button class="btn btn-outline btn-sm" onclick="event.stopPropagation();exportCSV('report')">📥 Export</button></div></div></div>
+          <div class="card cur" onclick="showReportModal('Project Progress Report')"><div class="card-body" style="padding:20px"><div class="bold mb8">🏗 Project Progress Report</div><div class="ts fs12">Site-wise physical & financial progress</div><div class="flex gap8 mt12"><button class="btn btn-primary btn-sm" onclick="event.stopPropagation();printReport()">🖨 Print</button><button class="btn btn-outline btn-sm" onclick="event.stopPropagation();exportCSV('report')">📥 Export</button></div></div></div>
+          <div class="card cur" onclick="showReportModal('Sales Report')"><div class="card-body" style="padding:20px"><div class="bold mb8">💰 Sales Report</div><div class="ts fs12">Bookings, collections, pending dues</div><div class="flex gap8 mt12"><button class="btn btn-primary btn-sm" onclick="event.stopPropagation();printReport()">🖨 Print</button><button class="btn btn-outline btn-sm" onclick="event.stopPropagation();exportCSV('report')">📥 Export</button></div></div></div>
+          <div class="card cur" onclick="showReportModal('Cash Flow Report')"><div class="card-body" style="padding:20px"><div class="bold mb8">💳 Cash Flow Report</div><div class="ts fs12">Monthly inflow, outflow & forecasts</div><div class="flex gap8 mt12"><button class="btn btn-primary btn-sm" onclick="event.stopPropagation();printReport()">🖨 Print</button><button class="btn btn-outline btn-sm" onclick="event.stopPropagation();exportCSV('report')">📥 Export</button></div></div></div>
+          <div class="card cur" onclick="showReportModal('Vendor Payable Report')"><div class="card-body" style="padding:20px"><div class="bold mb8">🏢 Vendor Payable Report</div><div class="ts fs12">Outstanding vendor & contractor dues</div><div class="flex gap8 mt12"><button class="btn btn-primary btn-sm" onclick="event.stopPropagation();printReport()">🖨 Print</button><button class="btn btn-outline btn-sm" onclick="event.stopPropagation();exportCSV('report')">📥 Export</button></div></div></div>
+          <div class="card cur" onclick="showReportModal('AI Risk Report')"><div class="card-body" style="padding:20px"><div class="bold mb8">🤖 AI Risk Report</div><div class="ts fs12">AI-generated risk analysis & predictions</div><div class="flex gap8 mt12"><button class="btn btn-primary btn-sm" onclick="event.stopPropagation();printReport()">🖨 Print</button><button class="btn btn-outline btn-sm" onclick="event.stopPropagation();exportCSV('report')">📥 Export</button></div></div></div>
+        </div>
+      </div>
+
+      <!-- Audit -->
+      <div class="inner-content" id="company-audit">
+        <div class="table-actions mb12">
+          <input type="text" class="tbl-search" placeholder="Search audit trail..." oninput="filterTable('audit-tbl',this.value)">
+          <select class="form-select" style="width:160px"><option>All Departments</option><option>Finance</option><option>Construction</option><option>Sales</option></select>
+          <select class="form-select" style="width:140px"><option>All Actions</option><option>Approve</option><option>Create</option><option>Update</option><option>Delete</option></select>
+        </div>
+        <div class="table-wrap">
+          <table id="audit-tbl">
+            <thead><tr><th>Date & Time</th><th>User</th><th>Role</th><th>Module</th><th>Action</th><th>Description</th><th>IP</th></tr></thead>
+            <tbody id="audit-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== CONSTRUCTION ERP ========== -->
+    <div class="page" id="page-construction">
+      <div class="page-header">
+        <div class="flex fsb fac">
+          <div><div class="page-title">Construction Site ERP</div><div class="page-sub">Site operations, progress tracking & contractor management</div></div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <select class="form-select" id="constr-project-sel" onchange="setConstrProject(this.value)" style="width:200px">
+              <option value="site-a">Aarohan Grande — Kharadi</option>
+              <option value="site-b">Aarohan Business Bay — Baner</option>
+              <option value="site-c">Aarohan Serenity — Wakad</option>
+              <option value="all">Consolidated View</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="inner-tabs" id="constr-tabs">
+        <div class="inner-tab active" onclick="switchInnerTab('constr','dashboard')">Site Dashboard</div>
+        <div class="inner-tab" onclick="switchInnerTab('constr','progress')">Planning & Progress</div>
+        <div class="inner-tab" onclick="switchInnerTab('constr','dpr')">Daily Progress (DPR)</div>
+        <div class="inner-tab" onclick="switchInnerTab('constr','boq')">BOQ & Budget</div>
+        <div class="inner-tab" onclick="switchInnerTab('constr','material')">Material & Inventory</div>
+        <div class="inner-tab" onclick="switchInnerTab('constr','purchase')">Purchase & GRN</div>
+        <div class="inner-tab" onclick="switchInnerTab('constr','labour')">Labour & Contractors</div>
+        <div class="inner-tab" onclick="switchInnerTab('constr','billing')">Contractor Billing</div>
+        <div class="inner-tab" onclick="switchInnerTab('constr','quality')">Quality</div>
+        <div class="inner-tab" onclick="switchInnerTab('constr','safety')">Safety</div>
+        <div class="inner-tab" onclick="switchInnerTab('constr','issues')">Issues & Delays</div>
+      </div>
+
+      <!-- Site Dashboard -->
+      <div class="inner-content active" id="constr-dashboard">
+        <div class="kpi-grid" id="constr-kpis">
+          <div class="kpi-card success"><div class="kpi-label">Physical Progress</div><div class="kpi-value" id="ck-physical">68%</div><div class="progress-bar mt8"><div class="progress-fill success" id="ck-physical-bar" style="width:68%"></div></div></div>
+          <div class="kpi-card info"><div class="kpi-label">Financial Progress</div><div class="kpi-value" id="ck-financial">71%</div><div class="progress-bar mt8"><div class="progress-fill blue" id="ck-fin-bar" style="width:71%"></div></div></div>
+          <div class="kpi-card"><div class="kpi-label">Current Manpower</div><div class="kpi-value" id="ck-manpower">284</div><div class="kpi-change kpi-neutral">👷 Workers on site</div></div>
+          <div class="kpi-card warn"><div class="kpi-label">Delayed Activities</div><div class="kpi-value" id="ck-delayed">8</div><div class="kpi-change kpi-down">⚠ Needs attention</div></div>
+          <div class="kpi-card success"><div class="kpi-label">Safety Score</div><div class="kpi-value" id="ck-safety">87</div><div class="kpi-change kpi-up">↑ 3 pts this month</div></div>
+          <div class="kpi-card success"><div class="kpi-label">Quality Score</div><div class="kpi-value" id="ck-quality">91</div><div class="kpi-change kpi-neutral">→ Good</div></div>
+          <div class="kpi-card"><div class="kpi-label">Active Contractors</div><div class="kpi-value" id="ck-contractors">18</div></div>
+          <div class="kpi-card warn"><div class="kpi-label">Open Issues</div><div class="kpi-value" id="ck-issues">7</div><div class="kpi-change kpi-down">⚠ 3 High Priority</div></div>
+        </div>
+
+        <div class="chart-grid2 mt16">
+          <div class="chart-card">
+            <div class="chart-header"><span class="chart-title">Planned vs Actual Progress by Activity</span></div>
+            <div class="chart-body"><canvas id="chart-progress-bar" height="200"></canvas></div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-header"><span class="chart-title">Site Expenditure by Category</span></div>
+            <div class="chart-body"><canvas id="chart-site-exp" height="200"></canvas></div>
+          </div>
+        </div>
+
+        <div class="grid2 mt16">
+          <div class="card">
+            <div class="card-header"><div class="card-title">Today's Site Activities</div></div>
+            <div class="card-body" id="today-activities">
+              <div class="timeline-item"><div class="timeline-dot done">✓</div><div class="timeline-content"><div class="bold fs13">RCC Casting — Tower 2, Floor 14</div><div class="ts fs12">Completed • BuildMax Contractors • 28 workers</div></div></div>
+              <div class="timeline-item"><div class="timeline-dot active" style="background:var(--blue);color:#fff">▶</div><div class="timeline-content"><div class="bold fs13">Plastering — Tower 1, Floor 8-10</div><div class="ts fs12">In Progress • Alpha Plastering • 18 workers</div></div></div>
+              <div class="timeline-item"><div class="timeline-dot active" style="background:var(--blue);color:#fff">▶</div><div class="timeline-content"><div class="bold fs13">MEP — Electrical Conduit, Tower 3</div><div class="ts fs12">In Progress • Spark Electricals • 12 workers</div></div></div>
+              <div class="timeline-item" style="margin-bottom:0"><div class="timeline-dot" style="background:#FDF3DC;color:var(--warn)">!</div><div class="timeline-content"><div class="bold fs13">Structural — Tower 4, Floor 3 Delayed</div><div class="ts fs12">Delayed — material shortage • 0 workers</div></div></div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"><div class="card-title">Contractor Productivity</div></div>
+            <div class="card-body">
+              <div class="info-row"><span class="lbl">BuildMax Contractors</span><span class="val" style="color:var(--warn)">89% ↓ 11%</span></div>
+              <div class="info-row"><span class="lbl">Spark Electricals</span><span class="val" style="color:var(--success)">94% ↑ 4%</span></div>
+              <div class="info-row"><span class="lbl">AquaFlow Plumbing</span><span class="val" style="color:var(--success)">97% ↑ 2%</span></div>
+              <div class="info-row"><span class="lbl">SecureFire Systems</span><span class="val" style="color:var(--ts)">85% →</span></div>
+              <div class="info-row"><span class="lbl">Prime Aluminium</span><span class="val" style="color:var(--success)">91% ↑ 6%</span></div>
+              <div class="info-row"><span class="lbl">Alpha Plastering</span><span class="val" style="color:var(--warn)">78% ↓ 8%</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Progress -->
+      <div class="inner-content" id="constr-progress">
+        <div class="table-actions mb12">
+          <select class="form-select" style="width:120px"><option>All Towers</option><option>Tower 1</option><option>Tower 2</option><option>Tower 3</option><option>Tower 4</option></select>
+          <select class="form-select" style="width:160px"><option>All Activities</option><option>RCC</option><option>Masonry</option><option>Plastering</option><option>MEP</option><option>Finishing</option></select>
+          <button class="btn btn-primary btn-sm" onclick="openModal('progress-modal')">+ Update Progress</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Tower</th><th>Floor</th><th>Activity</th><th>Contractor</th><th>Planned%</th><th>Actual%</th><th>Variance</th><th>Delay(Days)</th><th>Status</th><th>Action</th></tr></thead>
+            <tbody id="progress-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- DPR -->
+      <div class="inner-content" id="constr-dpr">
+        <div class="grid2 gap24">
+          <div>
+            <div class="card-title mb12">Submit Daily Progress Report</div>
+            <div class="card">
+              <div class="card-body">
+                <form id="dpr-form" onsubmit="submitDPR(event)">
+                  <div class="form-row3">
+                    <div class="form-group"><label class="form-label">Date</label><input class="form-input" type="date" id="dpr-date" required></div>
+                    <div class="form-group"><label class="form-label">Tower</label><select class="form-select" id="dpr-tower"><option>Tower 1</option><option>Tower 2</option><option>Tower 3</option><option>Tower 4</option></select></div>
+                    <div class="form-group"><label class="form-label">Floor</label><select class="form-select" id="dpr-floor"><option>Ground Floor</option><option>Floor 1</option><option>Floor 2</option><option>Floor 3</option><option>Floor 4</option><option>Floor 5</option><option>Floor 6</option><option>Floor 7</option><option>Floor 8</option><option>Floor 9</option><option>Floor 10</option><option>Floor 11</option><option>Floor 12</option><option>Floor 13</option><option>Floor 14</option><option>Floor 15</option></select></div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group"><label class="form-label">Activity</label><select class="form-select" id="dpr-activity"><option>RCC Casting</option><option>Masonry</option><option>Plastering</option><option>Electrical Conduit</option><option>Plumbing</option><option>Waterproofing</option><option>Flooring</option><option>Painting</option><option>Façade Work</option></select></div>
+                    <div class="form-group"><label class="form-label">Contractor</label><select class="form-select" id="dpr-contractor"><option>BuildMax Contractors</option><option>Spark Electricals</option><option>AquaFlow Plumbing</option><option>SecureFire Systems</option><option>Prime Aluminium</option></select></div>
+                  </div>
+                  <div class="form-row3">
+                    <div class="form-group"><label class="form-label">Planned Qty</label><input class="form-input" type="number" id="dpr-planned" placeholder="100" required></div>
+                    <div class="form-group"><label class="form-label">Completed Qty</label><input class="form-input" type="number" id="dpr-actual" placeholder="85" required></div>
+                    <div class="form-group"><label class="form-label">Unit</label><select class="form-select" id="dpr-unit"><option>sqm</option><option>rmt</option><option>nos</option><option>cum</option><option>MT</option></select></div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group"><label class="form-label">Labour Count</label><input class="form-input" type="number" id="dpr-labour" placeholder="25" required></div>
+                    <div class="form-group"><label class="form-label">Weather</label><select class="form-select" id="dpr-weather"><option>Clear</option><option>Cloudy</option><option>Light Rain</option><option>Heavy Rain</option><option>Windy</option></select></div>
+                  </div>
+                  <div class="form-group"><label class="form-label">Material Used</label><input class="form-input" id="dpr-material" placeholder="Cement 24 bags, Sand 2 MT, TMT 0.8 MT"></div>
+                  <div class="form-group"><label class="form-label">Delay Reason (if any)</label><input class="form-input" id="dpr-delay" placeholder="No delay / Labour shortage / Material not received..."></div>
+                  <div class="form-group"><label class="form-label">Engineer Remarks</label><textarea class="form-textarea" id="dpr-remarks" placeholder="Site conditions, quality observations, next day plan..."></textarea></div>
+                  <div class="form-group"><label class="form-label">Photo Upload (Simulated)</label><div style="border:2px dashed var(--border);border-radius:8px;padding:24px;text-align:center;cursor:pointer;background:var(--bg)" onclick="showToast('Photo uploaded successfully','success')">📸 Click to Upload Site Photos</div></div>
+                  <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Submit DPR Report</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="card-title mb12">Recent DPR Entries</div>
+            <div id="dpr-list"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOQ -->
+      <div class="inner-content" id="constr-boq">
+        <div class="table-actions mb12">
+          <div class="card-title">Bill of Quantities — Budget vs Actual</div>
+          <button class="btn btn-outline btn-sm" onclick="exportCSV('boq')">📥 Export BOQ</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Cost Code</th><th>Work Category</th><th>Budget (₹L)</th><th>Committed</th><th>Actual Cost</th><th>Paid</th><th>Remaining</th><th>Variance</th><th>Status</th></tr></thead>
+            <tbody id="boq-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Material -->
+      <div class="inner-content" id="constr-material">
+        <div class="flex fsb fac mb12">
+          <div class="card-title">Material & Inventory Management</div>
+          <div style="display:flex;gap:8px">
+            <button class="btn btn-warn btn-sm" onclick="showMaterialAlerts()">⚠ View Alerts</button>
+            <button class="btn btn-primary btn-sm" onclick="openModal('material-request-modal')">+ Material Request</button>
+          </div>
+        </div>
+        <div class="grid3 mb16">
+          <div class="kpi-card crit"><div class="kpi-label">Low Stock Alerts</div><div class="kpi-value">3</div><div class="kpi-change kpi-down">⚠ Immediate action needed</div></div>
+          <div class="kpi-card"><div class="kpi-label">Pending Deliveries</div><div class="kpi-value">8</div></div>
+          <div class="kpi-card success"><div class="kpi-label">Material Value on Site</div><div class="kpi-value">₹4.28 Cr</div></div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Material</th><th>Unit</th><th>Opening</th><th>Received</th><th>Consumed</th><th>Closing Stock</th><th>Min Stock</th><th>Value (₹L)</th><th>Alert</th></tr></thead>
+            <tbody id="material-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Purchase & GRN -->
+      <div class="inner-content" id="constr-purchase">
+        <div class="inner-tabs" style="background:#F0F4F7;margin-bottom:16px">
+          <div class="inner-tab active" onclick="switchInnerTab('purchase','mr')">Material Requests</div>
+          <div class="inner-tab" onclick="switchInnerTab('purchase','po')">Purchase Orders</div>
+          <div class="inner-tab" onclick="switchInnerTab('purchase','grn')">GRN</div>
+        </div>
+        <div class="inner-content active" id="purchase-mr">
+          <div class="flex fsb mb12"><div class="card-title">Material Requests</div><button class="btn btn-primary btn-sm" onclick="openModal('material-request-modal')">+ New Request</button></div>
+          <div class="table-wrap"><table><thead><tr><th>MR No.</th><th>Date</th><th>Material</th><th>Qty</th><th>Required By</th><th>Raised By</th><th>Status</th><th>Action</th></tr></thead><tbody>
+            <tr><td>MR-2026-142</td><td>20 Jun 2026</td><td>TMT Steel Fe500D</td><td>18 MT</td><td>28 Jun 2026</td><td>Nikhil Patil</td><td><span class="badge badge-warn">Pending PO</span></td><td><button class="btn btn-ghost btn-sm" onclick="showToast('MR opened','info')">View</button></td></tr>
+            <tr><td>MR-2026-141</td><td>18 Jun 2026</td><td>OPC 53 Grade Cement</td><td>200 Bags</td><td>25 Jun 2026</td><td>Pratik More</td><td><span class="badge badge-success">PO Issued</span></td><td><button class="btn btn-ghost btn-sm" onclick="showToast('MR opened','info')">View</button></td></tr>
+            <tr><td>MR-2026-140</td><td>15 Jun 2026</td><td>CPVC Pipes 25mm</td><td>500 Rmt</td><td>22 Jun 2026</td><td>Akash Shinde</td><td><span class="badge badge-info">Delivered</span></td><td><button class="btn btn-ghost btn-sm" onclick="showToast('MR opened','info')">View</button></td></tr>
+          </tbody></table></div>
+        </div>
+        <div class="inner-content" id="purchase-po">
+          <div class="table-wrap"><table><thead><tr><th>PO No.</th><th>Date</th><th>Vendor</th><th>Material</th><th>Qty</th><th>Value</th><th>Delivery Date</th><th>Status</th></tr></thead><tbody>
+            <tr><td>PO-2026-0284</td><td>12 Jun 2026</td><td>Tata Steel Ltd.</td><td>TMT Steel Fe500D</td><td>25 MT</td><td>₹18.75L</td><td>25 Jun 2026</td><td><span class="badge badge-warn">Pending</span></td></tr>
+            <tr><td>PO-2026-0280</td><td>02 Jun 2026</td><td>Spark Electricals</td><td>LT Power Cable 4Cx25sqmm</td><td>1200 Rmt</td><td>₹8.40L</td><td>20 Jun 2026</td><td><span class="badge badge-warn">Partial Delivery</span></td></tr>
+          </tbody></table></div>
+        </div>
+        <div class="inner-content" id="purchase-grn">
+          <div class="table-wrap"><table><thead><tr><th>GRN No.</th><th>Date</th><th>PO Ref</th><th>Vendor</th><th>Material</th><th>Ordered</th><th>Received</th><th>Accepted</th><th>Rejected</th><th>Status</th></tr></thead><tbody>
+            <tr><td>GRN-2026-089</td><td>19 Jun 2026</td><td>PO-0283</td><td>UltraTech Cement</td><td>OPC 53 Cement</td><td>500 Bags</td><td>500 Bags</td><td>496 Bags</td><td>4 Bags</td><td><span class="badge badge-success">Accepted</span></td></tr>
+            <tr><td>GRN-2026-088</td><td>17 Jun 2026</td><td>PO-0281</td><td>AquaFlow Plumbing</td><td>CPVC Pipes</td><td>500 Rmt</td><td>480 Rmt</td><td>480 Rmt</td><td>0</td><td><span class="badge badge-success">Accepted</span></td></tr>
+          </tbody></table></div>
+        </div>
+      </div>
+
+      <!-- Labour -->
+      <div class="inner-content" id="constr-labour">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Contractor</th><th>Work Category</th><th>Deployed</th><th>Required</th><th>Attendance%</th><th>Productivity</th><th>Safety Compliance</th><th>Quality Score</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>BuildMax Contractors</td><td>Structural / RCC</td><td>142</td><td>160</td><td>88%</td><td><span class="twarn">89% ↓</span></td><td>91%</td><td>87/100</td><td><span class="badge badge-warn">Attention</span></td></tr>
+              <tr><td>Spark Electricals</td><td>Electrical MEP</td><td>48</td><td>50</td><td>95%</td><td><span class="tsuc">94% ↑</span></td><td>98%</td><td>94/100</td><td><span class="badge badge-success">Good</span></td></tr>
+              <tr><td>AquaFlow Plumbing</td><td>Plumbing MEP</td><td>32</td><td>32</td><td>97%</td><td><span class="tsuc">97% ↑</span></td><td>96%</td><td>92/100</td><td><span class="badge badge-success">Excellent</span></td></tr>
+              <tr><td>SecureFire Systems</td><td>Fire Fighting</td><td>22</td><td>24</td><td>90%</td><td><span class="ts">85% →</span></td><td>93%</td><td>88/100</td><td><span class="badge badge-info">Normal</span></td></tr>
+              <tr><td>Alpha Plastering</td><td>Plastering & Finish</td><td>40</td><td>52</td><td>76%</td><td><span class="tcrit">78% ↓</span></td><td>84%</td><td>80/100</td><td><span class="badge badge-crit">Underperforming</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Billing -->
+      <div class="inner-content" id="constr-billing">
+        <div class="flex fsb mb12"><div class="card-title">Contractor Running Account Bills</div><button class="btn btn-primary btn-sm" onclick="openModal('bill-modal')">+ New RA Bill</button></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Bill No.</th><th>Contractor</th><th>Work</th><th>Work Order Value</th><th>RA Bill Amt</th><th>Retention</th><th>Advance Rec.</th><th>Net Payable</th><th>Status</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr><td>RAB-2026-048</td><td>BuildMax Contractors</td><td>RCC — Tower 2-3</td><td>₹280.00 L</td><td>₹68.25 L</td><td>₹3.41 L</td><td>₹6.82 L</td><td>₹58.02 L</td><td><span class="badge badge-warn">Pending Approval</span></td><td><button class="btn btn-success btn-sm" onclick="approveBill('RAB-2026-048')">Approve</button></td></tr>
+              <tr><td>RAB-2026-047</td><td>Spark Electricals</td><td>Electrical MEP</td><td>₹120.00 L</td><td>₹24.70 L</td><td>₹1.24 L</td><td>₹2.47 L</td><td>₹20.99 L</td><td><span class="badge badge-info">Under Review</span></td><td><button class="btn btn-ghost btn-sm" onclick="showToast('Bill details opened','info')">View</button></td></tr>
+              <tr><td>RAB-2026-046</td><td>AquaFlow Plumbing</td><td>Plumbing MEP</td><td>₹85.00 L</td><td>₹18.30 L</td><td>₹0.92 L</td><td>₹1.83 L</td><td>₹15.55 L</td><td><span class="badge badge-success">Approved</span></td><td><button class="btn btn-ghost btn-sm" onclick="showToast('Bill details opened','info')">View</button></td></tr>
+              <tr><td>RAB-2026-045</td><td>SecureFire Systems</td><td>Fire Fighting</td><td>₹62.00 L</td><td>₹14.85 L</td><td>₹0.74 L</td><td>₹1.49 L</td><td>₹12.62 L</td><td><span class="badge badge-success">Approved — Paid</span></td><td><button class="btn btn-ghost btn-sm" onclick="showToast('Payment details opened','info')">View</button></td></tr>
+              <tr><td>RAB-2026-044</td><td>Prime Aluminium</td><td>Aluminium Windows</td><td>₹145.00 L</td><td>₹32.40 L</td><td>₹1.62 L</td><td>₹3.24 L</td><td>₹27.54 L</td><td><span class="badge badge-warn">Pending Payment</span></td><td><button class="btn btn-primary btn-sm" onclick="showToast('Payment initiated successfully','success')">Pay</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Quality -->
+      <div class="inner-content" id="constr-quality">
+        <div class="grid3 mb16">
+          <div class="kpi-card success"><div class="kpi-label">Quality Score</div><div class="kpi-value">91/100</div></div>
+          <div class="kpi-card warn"><div class="kpi-label">Pending Inspections</div><div class="kpi-value">3</div></div>
+          <div class="kpi-card crit"><div class="kpi-label">Open NCRs</div><div class="kpi-value">2</div></div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Inspection ID</th><th>Date</th><th>Activity</th><th>Tower/Floor</th><th>Inspector</th><th>Result</th><th>NCR</th><th>Status</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr><td>QI-2026-124</td><td>21 Jun 2026</td><td>RCC Concrete Test</td><td>T2/F14</td><td>Nikhil Patil</td><td>Pass — M30 Grade OK</td><td>—</td><td><span class="badge badge-success">Passed</span></td><td><button class="btn btn-ghost btn-sm" onclick="showToast('QI report opened','info')">View</button></td></tr>
+              <tr><td>QI-2026-123</td><td>20 Jun 2026</td><td>Brick Masonry Check</td><td>T1/F8</td><td>Nikhil Patil</td><td>Minor Issues Found</td><td>NCR-18</td><td><span class="badge badge-warn">NCR Open</span></td><td><button class="btn btn-warn btn-sm" onclick="showToast('NCR details opened','warn')">NCR</button></td></tr>
+              <tr><td>QI-2026-122</td><td>19 Jun 2026</td><td>Waterproofing</td><td>T3/Terrace</td><td>Pratik More</td><td>Fail — Retest Required</td><td>NCR-17</td><td><span class="badge badge-crit">Failed</span></td><td><button class="btn btn-crit btn-sm" onclick="showToast('Rectification order sent','crit')">Fix</button></td></tr>
+              <tr><td>QI-2026-121</td><td>18 Jun 2026</td><td>Plastering Thickness</td><td>T1/F6-8</td><td>Nikhil Patil</td><td>Pass</td><td>—</td><td><span class="badge badge-success">Passed</span></td><td><button class="btn btn-ghost btn-sm" onclick="showToast('QI report opened','info')">View</button></td></tr>
+              <tr><td>QI-2026-120</td><td>17 Jun 2026</td><td>Electrical Wiring</td><td>T2/F1-5</td><td>Akash Shinde</td><td>Pending</td><td>—</td><td><span class="badge badge-warn">Scheduled</span></td><td><button class="btn btn-ghost btn-sm" onclick="showToast('Inspection scheduled for today','info')">Inspect</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Safety -->
+      <div class="inner-content" id="constr-safety">
+        <div class="grid4 mb16">
+          <div class="kpi-card success"><div class="kpi-label">Safety Score</div><div class="kpi-value">87/100</div></div>
+          <div class="kpi-card success"><div class="kpi-label">Days Without Incident</div><div class="kpi-value">42</div></div>
+          <div class="kpi-card warn"><div class="kpi-label">Near Misses (Month)</div><div class="kpi-value">2</div></div>
+          <div class="kpi-card success"><div class="kpi-label">PPE Compliance</div><div class="kpi-value">94%</div></div>
+        </div>
+        <div class="grid2">
+          <div class="card"><div class="card-header"><div class="card-title">Safety Checklist — Today</div><button class="btn btn-primary btn-sm" onclick="showToast('Safety checklist submitted','success')">Submit Checklist</button></div>
+          <div class="card-body">
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <label class="form-check"><input type="checkbox" checked> Safety Signage in Place</label>
+              <label class="form-check"><input type="checkbox" checked> PPE Compliance Verified</label>
+              <label class="form-check"><input type="checkbox" checked> Work Permits Issued</label>
+              <label class="form-check"><input type="checkbox" checked> Fire Extinguishers Checked</label>
+              <label class="form-check"><input type="checkbox" checked> Safety Nets Inspected</label>
+              <label class="form-check"><input type="checkbox"> Toolbox Talk Conducted</label>
+              <label class="form-check"><input type="checkbox" checked> Emergency Contacts Posted</label>
+              <label class="form-check"><input type="checkbox" checked> First Aid Kit Available</label>
+            </div>
+          </div></div>
+          <div class="card"><div class="card-header"><div class="card-title">Incident Log</div></div>
+          <div class="card-body">
+            <div class="info-row"><span class="lbl">22 Jun 2026</span><span class="val ts">No incident reported ✓</span></div>
+            <div class="info-row"><span class="lbl">15 Jun 2026</span><span class="val" style="color:var(--warn)">Near Miss — Falling object T3</span></div>
+            <div class="info-row"><span class="lbl">08 Jun 2026</span><span class="val ts">No incident reported ✓</span></div>
+            <div class="info-row"><span class="lbl">01 Jun 2026</span><span class="val" style="color:var(--warn)">Near Miss — Scaffold at T2</span></div>
+            <div class="info-row"><span class="lbl">May 2026</span><span class="val ts">0 incidents ✓</span></div>
+            <button class="btn btn-outline btn-sm mt12" onclick="showToast('Incident report form opened','info')">+ Report Incident</button>
+          </div></div>
+        </div>
+      </div>
+
+      <!-- Issues -->
+      <div class="inner-content" id="constr-issues">
+        <div class="flex fsb mb12"><div class="card-title">Issues & Delay Register</div><button class="btn btn-primary btn-sm" onclick="openModal('issue-modal')">+ Log Issue</button></div>
+        <div id="issues-list"></div>
+      </div>
+    </div>
+
+    <!-- ========== ORGANIZATION ========== -->
+    <div class="page" id="page-org">
+      <div class="page-header"><div class="page-title">Organization & Team</div><div class="page-sub">186 employees across 17 departments</div></div>
+      <div class="inner-tabs" id="org-tabs">
+        <div class="inner-tab active" onclick="switchInnerTab('org','orgchart')">Org Chart</div>
+        <div class="inner-tab" onclick="switchInnerTab('org','departments')">Departments</div>
+        <div class="inner-tab" onclick="switchInnerTab('org','employees')">Employees</div>
+        <div class="inner-tab" onclick="switchInnerTab('org','attendance')">Attendance</div>
+        <div class="inner-tab" onclick="switchInnerTab('org','tasks')">Tasks & Work</div>
+        <div class="inner-tab" onclick="switchInnerTab('org','performance')">Performance</div>
+        <div class="inner-tab" onclick="switchInnerTab('org','payroll')">Payroll Summary</div>
+      </div>
+
+      <!-- Org Chart -->
+      <div class="inner-content active" id="org-orgchart">
+        <div class="card"><div class="card-body" style="overflow-x:auto;padding:24px">
+          <div class="org-tree">
+            <div class="org-node top" style="min-width:160px">
+              <div class="name">Arvind Rao</div>
+              <div class="title" style="color:rgba(255,255,255,.7)">Managing Director</div>
+            </div>
+            <div class="org-children" style="gap:24px;padding-top:32px">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:16px">
+                <div class="org-node" style="min-width:140px;border-top:3px solid var(--blue)">
+                  <div class="name">Vikram Deshpande</div><div class="title ts">Project Director</div>
+                </div>
+                <div style="display:flex;gap:12px">
+                  <div class="org-node" style="min-width:120px"><div class="name" style="font-size:12px">Rohan Kulkarni</div><div class="title ts">PM — Site A</div></div>
+                  <div class="org-node" style="min-width:120px"><div class="name" style="font-size:12px">Sneha Deshmukh</div><div class="title ts">PM — Site B</div></div>
+                  <div class="org-node" style="min-width:120px"><div class="name" style="font-size:12px">Aditya Joshi</div><div class="title ts">PM — Site C</div></div>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:16px">
+                <div class="org-node" style="min-width:140px;border-top:3px solid var(--success)">
+                  <div class="name">Meera Shah</div><div class="title ts">CFO</div>
+                </div>
+                <div style="display:flex;gap:12px">
+                  <div class="org-node" style="min-width:120px"><div class="name" style="font-size:12px">Harshad Kulkarni</div><div class="title ts">Accounts Mgr</div></div>
+                  <div class="org-node" style="min-width:120px"><div class="name" style="font-size:12px">Tanvi Mehta</div><div class="title ts">RERA Compliance</div></div>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:16px">
+                <div class="org-node" style="min-width:140px;border-top:3px solid var(--warn)">
+                  <div class="name">Nisha Kapoor</div><div class="title ts">Sales Head</div>
+                </div>
+                <div style="display:flex;gap:12px">
+                  <div class="org-node" style="min-width:120px"><div class="name" style="font-size:12px">Pooja Iyer</div><div class="title ts">CRM Manager</div></div>
+                  <div class="org-node" style="min-width:120px"><div class="name" style="font-size:12px">Sales Team</div><div class="title ts">8 Executives</div></div>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:16px">
+                <div class="org-node" style="min-width:140px;border-top:3px solid var(--info)">
+                  <div class="name">Rahul Jadhav</div><div class="title ts">Operations Head</div>
+                </div>
+                <div style="display:flex;gap:12px">
+                  <div class="org-node" style="min-width:120px"><div class="name" style="font-size:12px">Sameer Khan</div><div class="title ts">Procurement Mgr</div></div>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:16px">
+                <div class="org-node" style="min-width:140px;border-top:3px solid #8B5CF6">
+                  <div class="name">Kavita Nair</div><div class="title ts">HR Head</div>
+                </div>
+                <div style="display:flex;gap:12px">
+                  <div class="org-node" style="min-width:120px"><div class="name" style="font-size:12px">HR Team</div><div class="title ts">4 Executives</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- Departments -->
+      <div class="inner-content" id="org-departments">
+        <div class="grid3" id="dept-grid"></div>
+      </div>
+
+      <!-- Employees -->
+      <div class="inner-content" id="org-employees">
+        <div class="table-actions mb12">
+          <input type="text" class="tbl-search" placeholder="Search employees..." oninput="filterTable('emp-tbl',this.value)">
+          <select class="form-select" style="width:180px" onchange="filterEmpByDept(this.value)"><option value="">All Departments</option><option>Sales</option><option>Finance</option><option>Site Execution</option><option>Project Management</option><option>CRM</option><option>HR</option><option>Procurement</option></select>
+          <button class="btn btn-primary btn-sm" onclick="openModal('add-emp-modal')">+ Add Employee</button>
+        </div>
+        <div class="table-wrap"><table id="emp-tbl"><thead><tr><th>Emp ID</th><th>Name</th><th>Designation</th><th>Department</th><th>Project</th><th>Open Tasks</th><th>Perf Score</th><th>Status</th><th>Action</th></tr></thead><tbody id="emp-tbody"></tbody></table></div>
+      </div>
+
+      <!-- Attendance -->
+      <div class="inner-content" id="org-attendance">
+        <div class="grid4 mb16">
+          <div class="kpi-card success"><div class="kpi-label">Present Today</div><div class="kpi-value">171</div></div>
+          <div class="kpi-card warn"><div class="kpi-label">On Leave</div><div class="kpi-value">9</div></div>
+          <div class="kpi-card crit"><div class="kpi-label">Absent</div><div class="kpi-value">6</div></div>
+          <div class="kpi-card info"><div class="kpi-label">Attendance %</div><div class="kpi-value">91.9%</div></div>
+        </div>
+        <div class="chart-card"><div class="chart-header"><span class="chart-title">Monthly Attendance Trend</span></div><div class="chart-body"><canvas id="chart-attendance" height="180"></canvas></div></div>
+      </div>
+
+      <!-- Tasks -->
+      <div class="inner-content" id="org-tasks">
+        <div class="flex fsb mb16 fac">
+          <div class="card-title">Task Board — All Projects</div>
+          <div style="display:flex;gap:8px">
+            <select class="form-select" style="width:160px"><option>All Projects</option><option>Site A</option><option>Site B</option><option>Site C</option></select>
+            <button class="btn btn-primary btn-sm" onclick="openModal('task-modal')">+ Add Task</button>
+          </div>
+        </div>
+        <div class="grid4" id="task-board" style="align-items:start">
+          <div><div style="font-weight:700;color:var(--info);margin-bottom:12px;padding:8px 14px;background:#E8F2FB;border-radius:6px">📋 Assigned (12)</div><div id="tasks-assigned"></div></div>
+          <div><div style="font-weight:700;color:var(--blue);margin-bottom:12px;padding:8px 14px;background:var(--lb);border-radius:6px">▶ In Progress (8)</div><div id="tasks-inprogress"></div></div>
+          <div><div style="font-weight:700;color:var(--success);margin-bottom:12px;padding:8px 14px;background:#E8F5F0;border-radius:6px">✅ Completed (48)</div><div id="tasks-completed"></div></div>
+          <div><div style="font-weight:700;color:var(--crit);margin-bottom:12px;padding:8px 14px;background:#FDEAEA;border-radius:6px">🔴 Overdue (23)</div><div id="tasks-overdue"></div></div>
+        </div>
+      </div>
+
+      <!-- Performance -->
+      <div class="inner-content" id="org-performance">
+        <div class="chart-grid2 mb16">
+          <div class="chart-card"><div class="chart-header"><span class="chart-title">Department Performance Scores</span></div><div class="chart-body"><canvas id="chart-dept-perf" height="200"></canvas></div></div>
+          <div class="chart-card"><div class="chart-header"><span class="chart-title">Employee Performance Distribution</span></div><div class="chart-body"><canvas id="chart-emp-perf" height="200"></canvas></div></div>
+        </div>
+        <div class="card"><div class="card-header"><div class="card-title">Top Performers This Month</div></div><div class="card-body">
+          <div class="grid3">
+            <div class="info-row"><span class="lbl">🥇 Nikhil Patil — Site Engg</span><span class="val" style="color:var(--success)">96/100</span></div>
+            <div class="info-row"><span class="lbl">🥈 AquaFlow Plumbing</span><span class="val" style="color:var(--success)">94/100</span></div>
+            <div class="info-row"><span class="lbl">🥉 Harshad Kulkarni — Finance</span><span class="val" style="color:var(--success)">93/100</span></div>
+            <div class="info-row"><span class="lbl">Pooja Iyer — CRM</span><span class="val" style="color:var(--blue)">91/100</span></div>
+            <div class="info-row"><span class="lbl">Sameer Khan — Procurement</span><span class="val" style="color:var(--blue)">89/100</span></div>
+            <div class="info-row"><span class="lbl">Spark Electricals</span><span class="val" style="color:var(--blue)">94/100</span></div>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- Payroll -->
+      <div class="inner-content" id="org-payroll">
+        <div class="grid4 mb16">
+          <div class="kpi-card"><div class="kpi-label">Total Payroll (Jun)</div><div class="kpi-value">₹1.38 Cr</div></div>
+          <div class="kpi-card success"><div class="kpi-label">Processed</div><div class="kpi-value">172</div></div>
+          <div class="kpi-card warn"><div class="kpi-label">Pending</div><div class="kpi-value">14</div></div>
+          <div class="kpi-card"><div class="kpi-label">TDS Deducted</div><div class="kpi-value">₹14.28 L</div></div>
+        </div>
+        <div class="table-wrap"><table><thead><tr><th>Department</th><th>Headcount</th><th>Gross Salary</th><th>Deductions</th><th>Net Pay</th><th>Status</th></tr></thead><tbody>
+          <tr><td>Site Execution</td><td>48</td><td>₹38.40 L</td><td>₹4.22 L</td><td>₹34.18 L</td><td><span class="badge badge-success">Processed</span></td></tr>
+          <tr><td>Sales & CRM</td><td>22</td><td>₹26.40 L</td><td>₹3.17 L</td><td>₹23.23 L</td><td><span class="badge badge-success">Processed</span></td></tr>
+          <tr><td>Finance & Accounts</td><td>12</td><td>₹18.00 L</td><td>₹2.16 L</td><td>₹15.84 L</td><td><span class="badge badge-success">Processed</span></td></tr>
+          <tr><td>Project Management</td><td>18</td><td>₹28.80 L</td><td>₹3.46 L</td><td>₹25.34 L</td><td><span class="badge badge-success">Processed</span></td></tr>
+          <tr><td>Procurement</td><td>10</td><td>₹12.00 L</td><td>₹1.44 L</td><td>₹10.56 L</td><td><span class="badge badge-warn">Pending</span></td></tr>
+          <tr><td>Corporate Management</td><td>8</td><td>₹16.00 L</td><td>₹1.92 L</td><td>₹14.08 L</td><td><span class="badge badge-success">Processed</span></td></tr>
+        </tbody></table></div>
+      </div>
+    </div>
+
+    <!-- ========== SALES & CRM ========== -->
+    <div class="page" id="page-sales">
+      <div class="page-header"><div class="page-title">Sales, Booking & Customer CRM</div><div class="page-sub">Lead management, bookings, collections and customer relations</div></div>
+      <div class="inner-tabs" id="sales-tabs">
+        <div class="inner-tab active" onclick="switchInnerTab('sales','sdash')">Sales Dashboard</div>
+        <div class="inner-tab" onclick="switchInnerTab('sales','ai-enq')">AI Enquiry Agent</div>
+        <div class="inner-tab" onclick="switchInnerTab('sales','leads')">Leads</div>
+        <div class="inner-tab" onclick="switchInnerTab('sales','followup')">Follow-Ups</div>
+        <div class="inner-tab" onclick="switchInnerTab('sales','units')">Unit Inventory</div>
+        <div class="inner-tab" onclick="switchInnerTab('sales','bookings')">Bookings</div>
+        <div class="inner-tab" onclick="switchInnerTab('sales','customers')">Customers</div>
+        <div class="inner-tab" onclick="switchInnerTab('sales','collections')">Collections</div>
+        <div class="inner-tab" onclick="switchInnerTab('sales','dues')">Pending Dues</div>
+        <div class="inner-tab" onclick="switchInnerTab('sales','channel')">Channel Partners</div>
+      </div>
+
+      <!-- Sales Dashboard -->
+      <div class="inner-content active" id="sales-sdash">
+        <div class="kpi-grid">
+          <div class="kpi-card info"><div class="kpi-label">New Enquiries Today</div><div class="kpi-value">68</div><div class="kpi-change kpi-up">↑ 12 vs yesterday</div></div>
+          <div class="kpi-card success"><div class="kpi-label">AI Handled</div><div class="kpi-value">43</div><div class="kpi-change kpi-up">63.2% auto-qualified</div></div>
+          <div class="kpi-card"><div class="kpi-label">Qualified Leads</div><div class="kpi-value">31</div></div>
+          <div class="kpi-card warn"><div class="kpi-label">Follow-Ups Due</div><div class="kpi-value">46</div><div class="kpi-change kpi-down">⚠ Action today</div></div>
+          <div class="kpi-card"><div class="kpi-label">Site Visits Scheduled</div><div class="kpi-value">18</div></div>
+          <div class="kpi-card success"><div class="kpi-label">Bookings This Month</div><div class="kpi-value" id="s-bookings">24</div><div class="kpi-change kpi-up">↑ vs target 20</div></div>
+          <div class="kpi-card success"><div class="kpi-label">Monthly Booking Value</div><div class="kpi-value">₹18.65 Cr</div></div>
+          <div class="kpi-card warn"><div class="kpi-label">Pending Dues</div><div class="kpi-value">₹117.15 Cr</div><div class="kpi-change kpi-down">⚠ 24.8 Cr overdue</div></div>
+          <div class="kpi-card"><div class="kpi-label">Conversion Rate</div><div class="kpi-value">8.7%</div><div class="kpi-change kpi-up">↑ 0.8% this month</div></div>
+          <div class="kpi-card info"><div class="kpi-label">Collection Efficiency</div><div class="kpi-value">74.3%</div></div>
+        </div>
+        <div class="chart-grid2 mt16">
+          <div class="chart-card"><div class="chart-header"><span class="chart-title">Bookings by Project — Last 6 Months</span></div><div class="chart-body"><canvas id="chart-sales-bar" height="180"></canvas></div></div>
+          <div class="chart-card"><div class="chart-header"><span class="chart-title">Lead Source Breakdown</span></div><div class="chart-body"><canvas id="chart-lead-src" height="180"></canvas></div></div>
+        </div>
+      </div>
+
+      <!-- AI Enquiry Agent -->
+      <div class="inner-content" id="sales-ai-enq">
+        <div class="grid2 gap24">
+          <div>
+            <div class="flex fac gap8 mb12">
+              <div style="width:10px;height:10px;border-radius:50%;background:var(--success);animation:pulse 1.5s infinite"></div>
+              <div class="bold" style="font-size:16px;color:var(--navy)">Demo AI Intelligence Engine</div>
+              <span class="badge badge-success">● Active</span>
+            </div>
+            <div class="ai-chat-wrap">
+              <div class="ai-chat-header">
+                <div class="ai-dot"></div>
+                <div>
+                  <div style="font-weight:600;font-size:14px">MAVIX AI Enquiry Agent</div>
+                  <div style="font-size:11px;opacity:.7">Handling real estate enquiries automatically</div>
+                </div>
+              </div>
+              <div class="ai-messages" id="enq-messages"></div>
+              <div class="ai-quick" id="enq-quick">
+                <div class="ai-q" onclick="sendEnqMsg(this.textContent)">I need a 3 BHK in Kharadi under ₹1.5 Cr</div>
+                <div class="ai-q" onclick="sendEnqMsg(this.textContent)">Office in Baner under ₹80L</div>
+                <div class="ai-q" onclick="sendEnqMsg(this.textContent)">Investment property under ₹90L</div>
+                <div class="ai-q" onclick="sendEnqMsg(this.textContent)">Schedule a site visit tomorrow</div>
+                <div class="ai-q" onclick="sendEnqMsg(this.textContent)">Available units in Site A</div>
+              </div>
+              <div class="ai-input-wrap">
+                <input class="ai-input" id="enq-input" placeholder="Type your enquiry here..." onkeydown="if(event.key==='Enter')sendEnqMsg()">
+                <button class="ai-send" onclick="sendEnqMsg()">Send</button>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="card-title mb12">AI Activity Log — Today</div>
+            <div class="card">
+              <div class="card-body" id="ai-activity-log">
+                <div class="info-row"><span class="lbl">08:14 AM</span><span class="val ts">Enquiry from Rajesh Kumar — 2BHK Kharadi — Qualified</span></div>
+                <div class="info-row"><span class="lbl">08:28 AM</span><span class="val ts">Site visit booked — Priya Sharma — Site A — 24 Jun</span></div>
+                <div class="info-row"><span class="lbl">09:02 AM</span><span class="lbl">Payment reminder sent — Anil Mehta — ₹4.80L overdue</span></div>
+                <div class="info-row"><span class="lbl">09:18 AM</span><span class="val ts">Lead qualified — Sanjay Verma — Budget 2Cr — 3BHK</span></div>
+                <div class="info-row"><span class="lbl">10:04 AM</span><span class="val ts">Enquiry — NRI from Dubai — Office unit — Assigned to team</span></div>
+                <div class="info-row"><span class="lbl">10:35 AM</span><span class="val ts">12 payment reminders sent — WhatsApp campaign</span></div>
+                <div class="info-row"><span class="lbl">11:02 AM</span><span class="val ts">Anomaly flagged — Vendor bank account change detected</span></div>
+                <div class="info-row"><span class="lbl">11:48 AM</span><span class="val ts">Site B progress alert — 6.2% behind planned schedule</span></div>
+              </div>
+            </div>
+            <div class="card-title mt16 mb12">AI Stats — Today</div>
+            <div class="grid2">
+              <div class="kpi-card success"><div class="kpi-label">Enquiries Handled</div><div class="kpi-value">43</div></div>
+              <div class="kpi-card"><div class="kpi-label">Leads Qualified</div><div class="kpi-value">17</div></div>
+              <div class="kpi-card"><div class="kpi-label">Site Visits Booked</div><div class="kpi-value">11</div></div>
+              <div class="kpi-card warn"><div class="kpi-label">Reminders Sent</div><div class="kpi-value">28</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Leads -->
+      <div class="inner-content" id="sales-leads">
+        <div class="table-actions mb12">
+          <input type="text" class="tbl-search" placeholder="Search leads..." oninput="filterTable('leads-tbl',this.value)">
+          <select class="form-select" style="width:140px" onchange="filterLeads(this.value)"><option value="">All Stages</option><option>New</option><option>Contacted</option><option>Qualified</option><option>Site Visit</option><option>Negotiation</option><option>Booking</option><option>Lost</option></select>
+          <button class="btn btn-primary btn-sm" onclick="openModal('add-lead-modal')">+ Add Lead</button>
+          <button class="btn btn-outline btn-sm" onclick="exportCSV('leads')">📥 Export</button>
+        </div>
+        <div class="table-wrap"><table id="leads-tbl"><thead><tr><th>Lead ID</th><th>Customer</th><th>Phone</th><th>Source</th><th>Project</th><th>Budget</th><th>Type</th><th>AI Score</th><th>Executive</th><th>Stage</th><th>Next Follow-Up</th><th>Action</th></tr></thead><tbody id="leads-tbody"></tbody></table></div>
+      </div>
+
+      <!-- Follow-Ups -->
+      <div class="inner-content" id="sales-followup">
+        <div class="flex fsb mb12"><div class="card-title">Follow-Up Schedule — Today & Upcoming</div><button class="btn btn-primary btn-sm" onclick="openModal('followup-modal')">+ Schedule Follow-Up</button></div>
+        <div class="table-wrap"><table><thead><tr><th>Lead</th><th>Customer</th><th>Phone</th><th>Stage</th><th>Follow-Up Date</th><th>Type</th><th>Executive</th><th>Last Interaction</th><th>Action</th></tr></thead><tbody id="followup-tbody"></tbody></table></div>
+      </div>
+
+      <!-- Units -->
+      <div class="inner-content" id="sales-units">
+        <div class="flex fsb fac mb12">
+          <div class="flex fac gap8">
+            <select class="form-select" style="width:180px" id="unit-project-filter" onchange="filterUnits(this.value)"><option value="">All Projects</option><option value="site-a">Aarohan Grande</option><option value="site-b">Business Bay</option><option value="site-c">Aarohan Serenity</option></select>
+            <select class="form-select" style="width:140px" id="unit-status-filter" onchange="filterUnitsByStatus(this.value)"><option value="">All Status</option><option value="Available">Available</option><option value="Booked">Booked</option><option value="Blocked">Blocked</option><option value="Cancelled">Cancelled</option></select>
+          </div>
+          <div class="flex gap8">
+            <div class="badge badge-success">■ Available</div>
+            <div class="badge badge-warn">■ Booked</div>
+            <div class="badge badge-crit">■ Blocked</div>
+            <div class="badge badge-grey">■ Cancelled</div>
+            <div class="badge badge-blue">■ Registered</div>
+          </div>
+        </div>
+        <div id="unit-grid-wrap"></div>
+      </div>
+
+      <!-- Bookings -->
+      <div class="inner-content" id="sales-bookings">
+        <div class="grid2 gap24">
+          <div>
+            <div class="card-title mb12">New Booking</div>
+            <div class="card"><div class="card-body">
+              <form id="booking-form" onsubmit="submitBooking(event)">
+                <div class="form-row">
+                  <div class="form-group"><label class="form-label">Customer Name</label><input class="form-input" id="bk-customer" placeholder="Full Name" required></div>
+                  <div class="form-group"><label class="form-label">Mobile Number</label><input class="form-input" id="bk-mobile" placeholder="+91 XXXXX XXXXX" required></div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group"><label class="form-label">Project</label><select class="form-select" id="bk-project" onchange="loadProjectUnits()"><option value="site-a">Aarohan Grande</option><option value="site-b">Business Bay</option><option value="site-c">Aarohan Serenity</option></select></div>
+                  <div class="form-group"><label class="form-label">Unit</label><select class="form-select" id="bk-unit"></select></div>
+                </div>
+                <div class="form-row3">
+                  <div class="form-group"><label class="form-label">Unit Price (₹)</label><input class="form-input" id="bk-price" type="number" placeholder="8500000"></div>
+                  <div class="form-group"><label class="form-label">Discount (₹)</label><input class="form-input" id="bk-disc" type="number" placeholder="0"></div>
+                  <div class="form-group"><label class="form-label">Booking Amount</label><input class="form-input" id="bk-amount" type="number" placeholder="500000" required></div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group"><label class="form-label">Payment Mode</label><select class="form-select" id="bk-mode"><option>Cheque</option><option>NEFT/RTGS</option><option>UPI</option><option>DD</option></select></div>
+                  <div class="form-group"><label class="form-label">Sales Executive</label><select class="form-select" id="bk-exec"><option>Rahul Sharma</option><option>Priya Desai</option><option>Amit Joshi</option><option>Sneha Patil</option></select></div>
+                </div>
+                <div class="form-group"><label class="form-label">Channel Partner</label><input class="form-input" id="bk-cp" placeholder="Direct / Partner Name"></div>
+                <div class="form-group"><label class="form-label">Remarks</label><textarea class="form-textarea" id="bk-remarks" placeholder="Any special notes..." rows="2"></textarea></div>
+                <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Confirm Booking</button>
+              </form>
+            </div></div>
+          </div>
+          <div>
+            <div class="card-title mb12">Recent Bookings</div>
+            <div id="booking-list"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Customers -->
+      <div class="inner-content" id="sales-customers">
+        <div class="table-actions mb12">
+          <input type="text" class="tbl-search" placeholder="Search customers..." oninput="filterTable('cust-tbl',this.value)">
+          <button class="btn btn-outline btn-sm" onclick="exportCSV('customers')">📥 Export</button>
+        </div>
+        <div class="table-wrap"><table id="cust-tbl"><thead><tr><th>Customer</th><th>Unit</th><th>Project</th><th>Agreement Value</th><th>Received</th><th>Pending</th><th>Next Demand</th><th>Overdue</th><th>Days OD</th><th>Action</th></tr></thead><tbody id="cust-tbody"></tbody></table></div>
+      </div>
+
+      <!-- Collections -->
+      <div class="inner-content" id="sales-collections">
+        <div class="kpi-grid mb16">
+          <div class="kpi-card success"><div class="kpi-label">This Month Collection</div><div class="kpi-value">₹14.28 Cr</div></div>
+          <div class="kpi-card"><div class="kpi-label">Total Collected</div><div class="kpi-value">₹204.65 Cr</div></div>
+          <div class="kpi-card warn"><div class="kpi-label">Due This Month</div><div class="kpi-value">₹19.20 Cr</div></div>
+          <div class="kpi-card crit"><div class="kpi-label">Collection Efficiency</div><div class="kpi-value">74.3%</div></div>
+        </div>
+        <div class="table-wrap"><table><thead><tr><th>Date</th><th>Customer</th><th>Unit</th><th>Project</th><th>Payment Type</th><th>Amount</th><th>Mode</th><th>Reference</th><th>Status</th></tr></thead><tbody id="coll-tbody"></tbody></table></div>
+      </div>
+
+      <!-- Pending Dues -->
+      <div class="inner-content" id="sales-dues">
+        <div class="kpi-grid mb16">
+          <div class="kpi-card success"><div class="kpi-label">Not Due</div><div class="kpi-value">₹54.20 Cr</div></div>
+          <div class="kpi-card warn"><div class="kpi-label">1–30 Days</div><div class="kpi-value">₹24.40 Cr</div></div>
+          <div class="kpi-card warn"><div class="kpi-label">31–60 Days</div><div class="kpi-value">₹18.35 Cr</div></div>
+          <div class="kpi-card crit"><div class="kpi-label">61–90 Days</div><div class="kpi-value">₹12.20 Cr</div></div>
+          <div class="kpi-card crit"><div class="kpi-label">> 90 Days</div><div class="kpi-value">₹8.00 Cr</div></div>
+        </div>
+        <div class="table-actions mb12">
+          <input type="text" class="tbl-search" placeholder="Search customers..." oninput="filterTable('dues-tbl',this.value)">
+          <select class="form-select" style="width:160px"><option>All Buckets</option><option>1-30 Days</option><option>31-60 Days</option><option>&gt;60 Days</option></select>
+          <button class="btn btn-warn btn-sm" onclick="sendBulkReminder()">📩 Send Bulk Reminder</button>
+        </div>
+        <div class="table-wrap"><table id="dues-tbl"><thead><tr><th>Customer</th><th>Unit</th><th>Due Amount</th><th>Overdue Amount</th><th>Days Overdue</th><th>Bucket</th><th>Action</th></tr></thead><tbody id="dues-tbody"></tbody></table></div>
+      </div>
+
+      <!-- Channel Partners -->
+      <div class="inner-content" id="sales-channel">
+        <div class="table-wrap"><table><thead><tr><th>Partner</th><th>Code</th><th>City</th><th>Bookings</th><th>Value</th><th>Commission Earned</th><th>Commission Paid</th><th>Pending</th><th>Status</th></tr></thead><tbody>
+          <tr><td>Pune Properties Hub</td><td>CP-001</td><td>Pune</td><td>28</td><td>₹22.40 Cr</td><td>₹44.80 L</td><td>₹40.00 L</td><td>₹4.80 L</td><td><span class="badge badge-success">Active</span></td></tr>
+          <tr><td>Kharadi Realty Network</td><td>CP-002</td><td>Pune</td><td>18</td><td>₹14.20 Cr</td><td>₹28.40 L</td><td>₹28.40 L</td><td>—</td><td><span class="badge badge-success">Active</span></td></tr>
+          <tr><td>PropTech Associates</td><td>CP-003</td><td>Mumbai</td><td>12</td><td>₹10.80 Cr</td><td>₹21.60 L</td><td>₹18.00 L</td><td>₹3.60 L</td><td><span class="badge badge-success">Active</span></td></tr>
+          <tr><td>NRI Connect Services</td><td>CP-004</td><td>Dubai/NRI</td><td>8</td><td>₹9.60 Cr</td><td>₹28.80 L</td><td>₹28.80 L</td><td>—</td><td><span class="badge badge-success">Active</span></td></tr>
+          <tr><td>Baner Property Advisors</td><td>CP-005</td><td>Pune</td><td>6</td><td>₹4.80 Cr</td><td>₹9.60 L</td><td>₹8.00 L</td><td>₹1.60 L</td><td><span class="badge badge-warn">Pending Dues</span></td></tr>
+        </tbody></table></div>
+      </div>
+    </div>
+
+    <!-- ========== FINANCE ========== -->
+    <div class="page" id="page-finance">
+      <div class="page-header"><div class="page-title">Finance</div><div class="page-sub">Company Finance & Construction Finance</div></div>
+      
+      <!-- Finance Landing -->
+      <div id="finance-landing">
+        <div class="finance-summary">
+          <h2>Financial Command Centre</h2>
+          <p>Manage company finances and project construction costs in one unified platform</p>
+          <div style="display:flex;gap:20px;flex-wrap:wrap">
+            <div class="finance-option" onclick="showFinance('company')">
+              <div class="fin-icon">🏢</div>
+              <h3>Company Finance</h3>
+              <p>P&L, banking, collections, vendor payments, payroll, loans, tax, cash flow and profitability analysis</p>
+              <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
+                <div style="background:rgba(255,255,255,.12);padding:8px 14px;border-radius:6px;font-size:12px"><span style="opacity:.6">Cash Balance</span><br><strong>₹34.86 Cr</strong></div>
+                <div style="background:rgba(255,255,255,.12);padding:8px 14px;border-radius:6px;font-size:12px"><span style="opacity:.6">Receivables</span><br><strong>₹117.15 Cr</strong></div>
+                <div style="background:rgba(255,255,255,.12);padding:8px 14px;border-radius:6px;font-size:12px"><span style="opacity:.6">Revenue</span><br><strong>₹204.65 Cr</strong></div>
+              </div>
+            </div>
+            <div class="finance-option" onclick="showFinance('construction')">
+              <div class="fin-icon">🏗️</div>
+              <h3>Construction Finance</h3>
+              <p>Project-wise cost tracking, BOQ vs actual, contractor bills, RERA accounts and withdrawal management</p>
+              <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
+                <div style="background:rgba(255,255,255,.12);padding:8px 14px;border-radius:6px;font-size:12px"><span style="opacity:.6">Total Budget</span><br><strong>₹312.75 Cr</strong></div>
+                <div style="background:rgba(255,255,255,.12);padding:8px 14px;border-radius:6px;font-size:12px"><span style="opacity:.6">Spent</span><br><strong>₹164.50 Cr</strong></div>
+                <div style="background:rgba(255,255,255,.12);padding:8px 14px;border-radius:6px;font-size:12px"><span style="opacity:.6">RERA Balance</span><br><strong>₹51.27 Cr</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Company Finance -->
+      <div id="finance-company" class="hidden">
+        <div class="flex fac gap8 mb16">
+          <button class="btn btn-ghost btn-sm" onclick="showFinance('landing')">← Back</button>
+          <div class="page-title" style="font-size:18px">Company Finance</div>
+        </div>
+        <div class="inner-tabs" id="cf-tabs">
+          <div class="inner-tab active" onclick="switchInnerTab('cf','overview')">Overview</div>
+          <div class="inner-tab" onclick="switchInnerTab('cf','transactions')">Transactions</div>
+          <div class="inner-tab" onclick="switchInnerTab('cf','banking')">Banking</div>
+          <div class="inner-tab" onclick="switchInnerTab('cf','cashflow')">Cash Flow</div>
+          <div class="inner-tab" onclick="switchInnerTab('cf','payables')">Vendor Payments</div>
+          <div class="inner-tab" onclick="switchInnerTab('cf','loans')">Loans & Investors</div>
+          <div class="inner-tab" onclick="switchInnerTab('cf','tax')">Tax & Compliance</div>
+          <div class="inner-tab" onclick="switchInnerTab('cf','profit')">Profitability</div>
+        </div>
+
+        <div class="inner-content active" id="cf-overview">
+          <div class="kpi-grid">
+            <div class="kpi-card success"><div class="kpi-label">Total Revenue</div><div class="kpi-value">₹204.65 Cr</div></div>
+            <div class="kpi-card"><div class="kpi-label">Construction Expenditure</div><div class="kpi-value">₹164.50 Cr</div></div>
+            <div class="kpi-card"><div class="kpi-label">Operational Expense</div><div class="kpi-value">₹16.84 Cr</div></div>
+            <div class="kpi-card success"><div class="kpi-label">Available Cash</div><div class="kpi-value">₹34.86 Cr</div></div>
+            <div class="kpi-card warn"><div class="kpi-label">Loans Outstanding</div><div class="kpi-value">₹46.50 Cr</div></div>
+            <div class="kpi-card info"><div class="kpi-label">Investor Funds</div><div class="kpi-value">₹18.00 Cr</div></div>
+            <div class="kpi-card success"><div class="kpi-label">Gross Margin</div><div class="kpi-value">₹93.15 Cr</div><div class="kpi-change kpi-up">18.5% ROI</div></div>
+            <div class="kpi-card warn"><div class="kpi-label">Finance Cost</div><div class="kpi-value">₹3.28 Cr</div></div>
+          </div>
+          <div class="chart-grid2 mt16">
+            <div class="chart-card"><div class="chart-header"><span class="chart-title">Cash Flow — Last 12 Months</span></div><div class="chart-body"><canvas id="chart-cf-flow" height="200"></canvas></div></div>
+            <div class="chart-card"><div class="chart-header"><span class="chart-title">Expense Breakdown</span></div><div class="chart-body"><canvas id="chart-cf-exp" height="200"></canvas></div></div>
+          </div>
+        </div>
+
+        <div class="inner-content" id="cf-transactions">
+          <div class="table-actions mb12">
+            <input type="text" class="tbl-search" placeholder="Search transactions..." oninput="filterTable('txn-tbl',this.value)">
+            <select class="form-select" style="width:180px"><option>All Categories</option><option>Customer Collection</option><option>Vendor Payment</option><option>Contractor Payment</option><option>Salary</option></select>
+            <button class="btn btn-primary btn-sm" onclick="openModal('txn-modal')">+ Add Transaction</button>
+            <button class="btn btn-outline btn-sm" onclick="exportCSV('transactions')">📥 Export</button>
+          </div>
+          <div class="table-wrap"><table id="txn-tbl"><thead><tr><th>Txn ID</th><th>Date</th><th>Category</th><th>Description</th><th>Project</th><th>Party</th><th>Mode</th><th>Debit (₹)</th><th>Credit (₹)</th><th>Status</th><th>Entered By</th></tr></thead><tbody id="txn-tbody"></tbody></table></div>
+        </div>
+
+        <div class="inner-content" id="cf-banking">
+          <div class="grid2 mb16">
+            <div class="card"><div class="card-header"><div class="card-title">Bank Accounts Summary</div></div>
+            <div class="card-body" id="bank-summary"></div></div>
+            <div class="card"><div class="card-header"><div class="card-title">RERA Accounts</div></div>
+            <div class="card-body" id="rera-summary"></div></div>
+          </div>
+        </div>
+
+        <div class="inner-content" id="cf-cashflow">
+          <div class="kpi-grid mb16">
+            <div class="kpi-card success"><div class="kpi-label">This Month Inflow</div><div class="kpi-value">₹18.74 Cr</div></div>
+            <div class="kpi-card warn"><div class="kpi-label">This Month Outflow</div><div class="kpi-value">₹14.28 Cr</div></div>
+            <div class="kpi-card success"><div class="kpi-label">Net Cash Flow</div><div class="kpi-value">₹4.46 Cr</div></div>
+            <div class="kpi-card info"><div class="kpi-label">90-Day Forecast</div><div class="kpi-value">₹52.40 Cr</div></div>
+          </div>
+          <div class="chart-card mb16"><div class="chart-header"><span class="chart-title">90-Day Cash Flow Forecast</span></div><div class="chart-body"><canvas id="chart-forecast" height="200"></canvas></div></div>
+          <div class="grid2">
+            <div class="card"><div class="card-header"><div class="card-title">Upcoming Collections (30 Days)</div></div><div class="card-body">
+              <div class="info-row"><span class="lbl">Demand notices due</span><span class="val" style="color:var(--success)">₹18.40 Cr</span></div>
+              <div class="info-row"><span class="lbl">Overdue reminders</span><span class="val" style="color:var(--warn)">₹8.20 Cr</span></div>
+              <div class="info-row"><span class="lbl">New booking collections</span><span class="val" style="color:var(--info)">₹3.60 Cr</span></div>
+              <div class="info-row"><span class="lbl">Registration payments</span><span class="val" style="color:var(--blue)">₹2.80 Cr</span></div>
+              <div class="info-row" style="font-weight:700"><span class="lbl">Total Expected</span><span class="val" style="color:var(--success)">₹33.00 Cr</span></div>
+            </div></div>
+            <div class="card"><div class="card-header"><div class="card-title">Upcoming Payments (30 Days)</div></div><div class="card-body">
+              <div class="info-row"><span class="lbl">Contractor bills due</span><span class="val" style="color:var(--crit)">₹8.42 Cr</span></div>
+              <div class="info-row"><span class="lbl">Vendor payments</span><span class="val" style="color:var(--crit)">₹3.80 Cr</span></div>
+              <div class="info-row"><span class="lbl">Loan EMI</span><span class="val" style="color:var(--warn)">₹1.24 Cr</span></div>
+              <div class="info-row"><span class="lbl">Salary</span><span class="val" style="color:var(--ts)">₹1.38 Cr</span></div>
+              <div class="info-row"><span class="lbl">Tax payments</span><span class="val" style="color:var(--ts)">₹0.84 Cr</span></div>
+              <div class="info-row" style="font-weight:700"><span class="lbl">Total Committed</span><span class="val" style="color:var(--crit)">₹15.68 Cr</span></div>
+            </div></div>
+          </div>
+        </div>
+
+        <div class="inner-content" id="cf-payables">
+          <div class="table-wrap"><table><thead><tr><th>Vendor</th><th>Category</th><th>Invoice No.</th><th>Invoice Date</th><th>Due Date</th><th>Amount</th><th>Status</th><th>Action</th></tr></thead><tbody>
+            <tr><td>Tata Steel Ltd.</td><td>Material</td><td>TS-2026-4821</td><td>10 Jun 2026</td><td>25 Jun 2026</td><td>₹18.75 L</td><td><span class="badge badge-warn">Due Soon</span></td><td><button class="btn btn-success btn-sm" onclick="showToast('Payment initiated for Tata Steel ₹18.75L','success')">Pay Now</button></td></tr>
+            <tr><td>UltraTech Cement</td><td>Material</td><td>UC-2026-3312</td><td>12 Jun 2026</td><td>27 Jun 2026</td><td>₹8.42 L</td><td><span class="badge badge-warn">Due Soon</span></td><td><button class="btn btn-success btn-sm" onclick="showToast('Payment initiated for UltraTech ₹8.42L','success')">Pay Now</button></td></tr>
+            <tr><td>BuildMax Contractors</td><td>Contractor</td><td>BM-2026-0148</td><td>18 Jun 2026</td><td>30 Jun 2026</td><td>₹58.02 L</td><td><span class="badge badge-warn">Pending Approval</span></td><td><button class="btn btn-ghost btn-sm" onclick="showToast('Awaiting Director approval','warn')">View</button></td></tr>
+            <tr><td>Spark Electricals</td><td>Contractor</td><td>SE-2026-0084</td><td>20 Jun 2026</td><td>05 Jul 2026</td><td>₹20.99 L</td><td><span class="badge badge-info">Under Review</span></td><td><button class="btn btn-ghost btn-sm" onclick="showToast('Review in progress','info')">View</button></td></tr>
+            <tr><td>DesignGrid Consultants</td><td>Professional Fee</td><td>DG-2026-0041</td><td>01 Jun 2026</td><td>15 Jun 2026</td><td>₹4.80 L</td><td><span class="badge badge-crit">Overdue</span></td><td><button class="btn btn-crit btn-sm" onclick="showToast('Overdue payment processed','success')">Pay Overdue</button></td></tr>
+          </tbody></table></div>
+        </div>
+
+        <div class="inner-content" id="cf-loans">
+          <div class="grid3 mb16">
+            <div class="kpi-card warn"><div class="kpi-label">Total Loans Outstanding</div><div class="kpi-value">₹46.50 Cr</div></div>
+            <div class="kpi-card info"><div class="kpi-label">Investor Funds Received</div><div class="kpi-value">₹18.00 Cr</div></div>
+            <div class="kpi-card"><div class="kpi-label">Monthly Loan Outflow</div><div class="kpi-value">₹1.24 Cr</div></div>
+          </div>
+          <div class="table-wrap"><table><thead><tr><th>Lender</th><th>Type</th><th>Sanctioned</th><th>Drawn</th><th>Outstanding</th><th>Rate%</th><th>Maturity</th><th>Monthly EMI</th><th>Status</th></tr></thead><tbody>
+            <tr><td>HDFC Bank Ltd.</td><td>Construction Finance</td><td>₹30.00 Cr</td><td>₹28.50 Cr</td><td>₹24.80 Cr</td><td>9.25%</td><td>Mar 2028</td><td>₹0.72 Cr</td><td><span class="badge badge-success">Regular</span></td></tr>
+            <tr><td>ICICI Bank Ltd.</td><td>Project Loan</td><td>₹25.00 Cr</td><td>₹22.00 Cr</td><td>₹18.40 Cr</td><td>9.50%</td><td>Jun 2027</td><td>₹0.42 Cr</td><td><span class="badge badge-success">Regular</span></td></tr>
+            <tr><td>Patel Family (Investor)</td><td>Private Investment</td><td>₹10.00 Cr</td><td>₹10.00 Cr</td><td>₹10.00 Cr</td><td>12.00%</td><td>Dec 2026</td><td>₹0.10 Cr</td><td><span class="badge badge-warn">Maturing Soon</span></td></tr>
+            <tr><td>Mehta Ventures</td><td>Private Investment</td><td>₹8.00 Cr</td><td>₹8.00 Cr</td><td>₹3.30 Cr</td><td>11.50%</td><td>Mar 2027</td><td>₹0.00 Cr</td><td><span class="badge badge-success">Equity</span></td></tr>
+          </tbody></table></div>
+        </div>
+
+        <div class="inner-content" id="cf-tax">
+          <div class="grid2 mb16">
+            <div class="card"><div class="card-header"><div class="card-title">GST Summary</div></div><div class="card-body">
+              <div class="info-row"><span class="lbl">GST Collected (Output)</span><span class="val" style="color:var(--success)">₹18.42 Cr</span></div>
+              <div class="info-row"><span class="lbl">GST Paid (Input Credit)</span><span class="val" style="color:var(--info)">₹14.28 Cr</span></div>
+              <div class="info-row"><span class="lbl">Net GST Payable</span><span class="val" style="color:var(--crit)">₹4.14 Cr</span></div>
+              <div class="info-row"><span class="lbl">Last Filed (May 2026)</span><span class="val" style="color:var(--success)">Filed ✓</span></div>
+              <div class="info-row"><span class="lbl">Next Due (Jun 2026)</span><span class="val" style="color:var(--warn)">20 Jul 2026</span></div>
+              <button class="btn btn-primary btn-sm mt12" onclick="showToast('GST return filed successfully','success')">File Jun 2026 Return</button>
+            </div></div>
+            <div class="card"><div class="card-header"><div class="card-title">TDS Summary</div></div><div class="card-body">
+              <div class="info-row"><span class="lbl">TDS Deducted (Contractors)</span><span class="val">₹8.24 L</span></div>
+              <div class="info-row"><span class="lbl">TDS on Salary</span><span class="val">₹14.28 L</span></div>
+              <div class="info-row"><span class="lbl">TDS on Professional Fees</span><span class="val">₹2.40 L</span></div>
+              <div class="info-row"><span class="lbl">Total TDS Deducted</span><span class="val" style="color:var(--warn)">₹24.92 L</span></div>
+              <div class="info-row"><span class="lbl">TDS Filed (Q4 FY25-26)</span><span class="val" style="color:var(--success)">Filed ✓</span></div>
+              <button class="btn btn-outline btn-sm mt12" onclick="showToast('TDS return generated','info')">Generate Q1 FY26-27</button>
+            </div></div>
+          </div>
+        </div>
+
+        <div class="inner-content" id="cf-profit">
+          <div class="chart-card mb16"><div class="chart-header"><span class="chart-title">Project-wise Profitability Analysis</span></div><div class="chart-body"><canvas id="chart-profit" height="220"></canvas></div></div>
+          <div class="table-wrap"><table><thead><tr><th>Project</th><th>Sales Value</th><th>Construction Cost</th><th>Marketing Cost</th><th>Finance Cost</th><th>Admin Cost</th><th>Total Cost</th><th>Gross Margin</th><th>Margin%</th></tr></thead><tbody>
+            <tr><td><strong>Aarohan Grande</strong></td><td>₹218.60 Cr</td><td>₹139.40 Cr</td><td>₹1.20 Cr</td><td>₹1.40 Cr</td><td>₹0.60 Cr</td><td>₹142.60 Cr</td><td class="tsuc">₹76.00 Cr</td><td class="tsuc bold">34.8%</td></tr>
+            <tr><td><strong>Business Bay</strong></td><td>₹174.80 Cr</td><td>₹114.10 Cr</td><td>₹0.80 Cr</td><td>₹1.20 Cr</td><td>₹0.40 Cr</td><td>₹116.50 Cr</td><td class="twarn">₹58.30 Cr</td><td class="twarn bold">33.4%</td></tr>
+            <tr><td><strong>Aarohan Serenity</strong></td><td>₹93.00 Cr</td><td>₹63.85 Cr</td><td>₹0.42 Cr</td><td>₹0.68 Cr</td><td>₹0.16 Cr</td><td>₹65.11 Cr</td><td class="twarn">₹27.89 Cr</td><td class="twarn bold">30.0%</td></tr>
+          </tbody></table></div>
+        </div>
+      </div>
+
+      <!-- Construction Finance -->
+      <div id="finance-construction" class="hidden">
+        <div class="flex fac gap8 mb16">
+          <button class="btn btn-ghost btn-sm" onclick="showFinance('landing')">← Back</button>
+          <div class="page-title" style="font-size:18px">Construction Finance</div>
+        </div>
+        <div class="inner-tabs" id="cof-tabs">
+          <div class="inner-tab active" onclick="switchInnerTab('cof','costsummary')">Cost Summary</div>
+          <div class="inner-tab" onclick="switchInnerTab('cof','budgetactual')">Budget vs Actual</div>
+          <div class="inner-tab" onclick="switchInnerTab('cof','rera')">RERA Accounts</div>
+          <div class="inner-tab" onclick="switchInnerTab('cof','withdrawal')">Withdrawal</div>
+          <div class="inner-tab" onclick="switchInnerTab('cof','cpi')">Cost Performance</div>
+        </div>
+
+        <div class="inner-content active" id="cof-costsummary">
+          <div class="grid3 mb16">
+            <div class="card">
+              <div class="card-header"><div class="card-title" style="color:var(--success)">● Site A — Aarohan Grande</div></div>
+              <div class="card-body">
+                <div class="info-row"><span class="lbl">Approved Budget</span><span class="val">₹139.40 Cr</span></div>
+                <div class="info-row"><span class="lbl">Committed Cost</span><span class="val">₹112.80 Cr</span></div>
+                <div class="info-row"><span class="lbl">Actual Cost</span><span class="val">₹76.15 Cr</span></div>
+                <div class="info-row"><span class="lbl">Paid Amount</span><span class="val">₹69.40 Cr</span></div>
+                <div class="info-row"><span class="lbl">Outstanding</span><span class="val" style="color:var(--warn)">₹6.75 Cr</span></div>
+                <div class="info-row"><span class="lbl">Cost-to-Complete</span><span class="val">₹59.60 Cr</span></div>
+                <div class="info-row"><span class="lbl">Forecast Cost</span><span class="val">₹135.75 Cr</span></div>
+                <div class="info-row"><span class="lbl">Expected Saving</span><span class="val" style="color:var(--success)">▲ ₹3.65 Cr</span></div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header"><div class="card-title" style="color:var(--warn)">⚠ Site B — Business Bay</div></div>
+              <div class="card-body">
+                <div class="info-row"><span class="lbl">Approved Budget</span><span class="val">₹111.25 Cr</span></div>
+                <div class="info-row"><span class="lbl">Committed Cost</span><span class="val">₹86.20 Cr</span></div>
+                <div class="info-row"><span class="lbl">Actual Cost</span><span class="val">₹56.90 Cr</span></div>
+                <div class="info-row"><span class="lbl">Paid Amount</span><span class="val">₹51.35 Cr</span></div>
+                <div class="info-row"><span class="lbl">Outstanding</span><span class="val" style="color:var(--warn)">₹5.55 Cr</span></div>
+                <div class="info-row"><span class="lbl">Cost-to-Complete</span><span class="val">₹57.20 Cr</span></div>
+                <div class="info-row"><span class="lbl">Forecast Cost</span><span class="val">₹114.10 Cr</span></div>
+                <div class="info-row"><span class="lbl">Expected Overrun</span><span class="val" style="color:var(--crit)">▼ ₹2.85 Cr</span></div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header"><div class="card-title" style="color:var(--crit)">🔴 Site C — Aarohan Serenity</div></div>
+              <div class="card-body">
+                <div class="info-row"><span class="lbl">Approved Budget</span><span class="val">₹62.10 Cr</span></div>
+                <div class="info-row"><span class="lbl">Committed Cost</span><span class="val">₹44.60 Cr</span></div>
+                <div class="info-row"><span class="lbl">Actual Cost</span><span class="val">₹31.45 Cr</span></div>
+                <div class="info-row"><span class="lbl">Paid Amount</span><span class="val">₹27.80 Cr</span></div>
+                <div class="info-row"><span class="lbl">Outstanding</span><span class="val" style="color:var(--warn)">₹3.65 Cr</span></div>
+                <div class="info-row"><span class="lbl">Cost-to-Complete</span><span class="val">₹32.40 Cr</span></div>
+                <div class="info-row"><span class="lbl">Forecast Cost</span><span class="val">₹63.85 Cr</span></div>
+                <div class="info-row"><span class="lbl">Expected Overrun</span><span class="val" style="color:var(--crit)">▼ ₹1.75 Cr</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="inner-content" id="cof-budgetactual">
+          <div class="chart-card mb16"><div class="chart-header"><span class="chart-title">Budget vs Actual Cost by Project & Category</span></div><div class="chart-body"><canvas id="chart-bva" height="220"></canvas></div></div>
+        </div>
+
+        <div class="inner-content" id="cof-rera">
+          <div class="grid3 mb16" id="rera-accounts"></div>
+        </div>
+
+        <div class="inner-content" id="cof-withdrawal">
+          <div class="card mb16">
+            <div class="card-header"><div class="card-title">RERA Withdrawal Request — Site A</div><span class="badge badge-warn">Awaiting Compliance Review</span></div>
+            <div class="card-body">
+              <div class="grid2">
+                <div>
+                  <div class="info-row"><span class="lbl">Project</span><span class="val">Aarohan Grande — Site A</span></div>
+                  <div class="info-row"><span class="lbl">Requested Withdrawal</span><span class="val" style="color:var(--navy)">₹4.85 Cr</span></div>
+                  <div class="info-row"><span class="lbl">Certified Physical Progress</span><span class="val">68%</span></div>
+                  <div class="info-row"><span class="lbl">Eligible Withdrawal Amount</span><span class="val" style="color:var(--success)">₹5.10 Cr</span></div>
+                  <div class="info-row"><span class="lbl">Collection Account Balance</span><span class="val">₹28.40 Cr</span></div>
+                </div>
+                <div>
+                  <div class="card-title mb12" style="font-size:13px">Withdrawal Workflow</div>
+                  <div class="rera-stage done"><div class="rera-stage-num">1</div><div><div class="bold fs13">Project Progress Entry</div><div class="ts fs12">68% physical — Updated 20 Jun 2026</div></div></div>
+                  <div class="rera-stage done"><div class="rera-stage-num">2</div><div><div class="bold fs13">Engineer Certificate</div><div class="ts fs12">Nikhil Patil — Uploaded & Verified</div></div></div>
+                  <div class="rera-stage done"><div class="rera-stage-num">3</div><div><div class="bold fs13">Architect Certificate</div><div class="ts fs12">DesignGrid Consultants — Complete</div></div></div>
+                  <div class="rera-stage done"><div class="rera-stage-num">4</div><div><div class="bold fs13">CA Certificate</div><div class="ts fs12">R.K. & Associates — Complete</div></div></div>
+                  <div class="rera-stage done"><div class="rera-stage-num">5</div><div><div class="bold fs13">Finance Verification</div><div class="ts fs12">Meera Shah — Complete</div></div></div>
+                  <div class="rera-stage active"><div class="rera-stage-num">6</div><div><div class="bold fs13">Compliance Verification</div><div class="ts fs12">Tanvi Mehta — In Review</div></div></div>
+                  <div class="rera-stage pending"><div class="rera-stage-num">7</div><div><div class="bold fs13">Director Approval</div><div class="ts fs12">Awaiting compliance clearance</div></div></div>
+                  <div class="rera-stage pending"><div class="rera-stage-num">8</div><div><div class="bold fs13">Bank Withdrawal</div><div class="ts fs12">Pending</div></div></div>
+                </div>
+              </div>
+              <div class="flex gap8 mt16">
+                <button class="btn btn-success" onclick="approveRERA()">✓ Approve Compliance</button>
+                <button class="btn btn-crit" onclick="showToast('Rejection submitted — reason required','crit')">✗ Reject</button>
+                <button class="btn btn-warn" onclick="showToast('Request put on hold pending site visit','warn')">⏸ Hold</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="inner-content" id="cof-cpi">
+          <div class="grid3 mb16">
+            <div class="kpi-card success"><div class="kpi-label">Site A — CPI</div><div class="kpi-value">1.03</div><div class="kpi-change kpi-up">Under budget ✓</div></div>
+            <div class="kpi-card warn"><div class="kpi-label">Site B — CPI</div><div class="kpi-value">0.97</div><div class="kpi-change kpi-down">Slight overrun ⚠</div></div>
+            <div class="kpi-card warn"><div class="kpi-label">Site C — CPI</div><div class="kpi-value">0.97</div><div class="kpi-change kpi-down">Slight overrun ⚠</div></div>
+          </div>
+          <div class="chart-card"><div class="chart-header"><span class="chart-title">Cost Performance Index — Monthly Trend</span></div><div class="chart-body"><canvas id="chart-cpi" height="200"></canvas></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== AI INTELLIGENCE ========== -->
+    <div class="page" id="page-ai">
+      <div class="page-header"><div class="page-title">AI Intelligence Command Centre</div><div class="page-sub">Enterprise AI layer — Monitoring, prediction and decision support</div></div>
+      <div class="inner-tabs" id="ai-tabs">
+        <div class="inner-tab active" onclick="switchInnerTab('ai','assistant')">AI Executive Assistant</div>
+        <div class="inner-tab" onclick="switchInnerTab('ai','site-intel')">Site Intelligence</div>
+        <div class="inner-tab" onclick="switchInnerTab('ai','fin-intel')">Finance Intelligence</div>
+        <div class="inner-tab" onclick="switchInnerTab('ai','collection')">Collection Agent</div>
+        <div class="inner-tab" onclick="switchInnerTab('ai','risk')">Risk Centre</div>
+        <div class="inner-tab" onclick="switchInnerTab('ai','log')">Activity Log</div>
+      </div>
+
+      <!-- Executive Assistant -->
+      <div class="inner-content active" id="ai-assistant">
+        <div class="grid2 gap24">
+          <div>
+            <div class="flex fac gap8 mb12">
+              <div style="width:10px;height:10px;border-radius:50%;background:var(--success);animation:pulse 1.5s infinite"></div>
+              <div class="bold fs16" style="color:var(--navy)">AI Executive Assistant</div>
+              <span class="badge badge-success">● Online</span>
+            </div>
+            <div class="ai-chat-wrap">
+              <div class="ai-chat-header">
+                <div class="ai-dot"></div>
+                <div><div style="font-weight:700;font-size:14px">MAVIX Intelligence Engine</div><div style="font-size:11px;opacity:.7">Enterprise data-driven executive assistant</div></div>
+              </div>
+              <div class="ai-messages" id="exec-messages"></div>
+              <div class="ai-quick">
+                <div class="ai-q" onclick="sendExecMsg(this.textContent)">Today's company summary</div>
+                <div class="ai-q" onclick="sendExecMsg(this.textContent)">Which project is delayed?</div>
+                <div class="ai-q" onclick="sendExecMsg(this.textContent)">Highest pending customer dues</div>
+                <div class="ai-q" onclick="sendExecMsg(this.textContent)">Budget overrun risk</div>
+                <div class="ai-q" onclick="sendExecMsg(this.textContent)">Low stock materials</div>
+                <div class="ai-q" onclick="sendExecMsg(this.textContent)">Pending approvals</div>
+                <div class="ai-q" onclick="sendExecMsg(this.textContent)">This month collection</div>
+                <div class="ai-q" onclick="sendExecMsg(this.textContent)">Unusual transactions</div>
+              </div>
+              <div class="ai-input-wrap">
+                <input class="ai-input" id="exec-input" placeholder="Ask anything about your business..." onkeydown="if(event.key==='Enter')sendExecMsg()">
+                <button class="ai-send" onclick="sendExecMsg()">Ask AI</button>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="card-title mb12">AI System Status</div>
+            <div class="card mb16"><div class="card-body">
+              <div class="ai-status-row"><span class="ai-status-name">🧠 AI Executive Assistant</span><span class="badge badge-success">● Online</span></div>
+              <div class="ai-status-row"><span class="ai-status-name">📞 AI Enquiry Agent</span><span class="badge badge-success">● Active — 43 handled today</span></div>
+              <div class="ai-status-row"><span class="ai-status-name">💰 AI Collection Agent</span><span class="badge badge-success">● Active — 28 reminders sent</span></div>
+              <div class="ai-status-row"><span class="ai-status-name">🏗 AI Site Monitor</span><span class="badge badge-warn">⚠ 3 alerts active</span></div>
+              <div class="ai-status-row"><span class="ai-status-name">🔍 Expense Anomaly Scanner</span><span class="badge badge-crit">🚨 3 anomalies flagged</span></div>
+              <div class="ai-status-row"><span class="ai-status-name">📦 Material Predictor</span><span class="badge badge-warn">⚠ 2 shortage risks</span></div>
+              <div class="ai-status-row"><span class="ai-status-name">🏢 Vendor Risk Monitor</span><span class="badge badge-success">● Monitoring</span></div>
+            </div></div>
+            <div class="card-title mb12">Today's AI Highlights</div>
+            <div class="card"><div class="card-body">
+              <div class="info-row"><span class="lbl">Enquiries Handled</span><span class="val" style="color:var(--success)">43</span></div>
+              <div class="info-row"><span class="lbl">Leads Auto-Qualified</span><span class="val" style="color:var(--success)">17</span></div>
+              <div class="info-row"><span class="lbl">Payment Reminders Sent</span><span class="val" style="color:var(--info)">28</span></div>
+              <div class="info-row"><span class="lbl">Dues Followed Up</span><span class="val" style="color:var(--warn)">₹42.50 L</span></div>
+              <div class="info-row"><span class="lbl">Financial Anomalies</span><span class="val" style="color:var(--crit)">3 flagged</span></div>
+              <div class="info-row"><span class="lbl">Material Risk Predictions</span><span class="val" style="color:var(--warn)">2 alerts</span></div>
+              <div class="info-row"><span class="lbl">Delayed Activities Escalated</span><span class="val" style="color:var(--crit)">4</span></div>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Site Intelligence -->
+      <div class="inner-content" id="ai-site-intel">
+        <div class="flex fsb fac mb16">
+          <div class="card-title">AI Site Intelligence Alerts</div>
+          <span class="ai-live"><span class="ai-live-dot"></span>Live Monitoring</span>
+        </div>
+        <div id="site-intel-alerts">
+          <div class="ai-alert crit mb10"><div class="ai-alert-icon">🔴</div><div style="flex:1"><div class="ai-alert-title">Site B is 6.2% behind planned progress</div><div class="ai-alert-body">Structural work completion at 52% vs planned 58.2%. Primary cause: labour shortage in RCC team. Financial impact: potential 3-week delay. Recommended: mobilise additional workers from Site A or engage alternate contractor.</div><div class="ai-alert-actions"><button class="btn btn-crit btn-sm" onclick="showToast('Escalation sent to Project Director','crit')">Escalate</button><button class="btn btn-outline btn-sm" onclick="showToast('Action plan requested','info')">Action Plan</button></div></div></div>
+          <div class="ai-alert crit mb10"><div class="ai-alert-icon">⚠️</div><div style="flex:1"><div class="ai-alert-title">Site C may face 12-day RCC delay due to labour shortage</div><div class="ai-alert-body">AI prediction based on current deployment (143 vs required 180) and work progress velocity. Tower 2 floor 4–6 likely delayed. Impact: ₹1.2 Cr cost escalation risk.</div><div class="ai-alert-actions"><button class="btn btn-warn btn-sm" onclick="showToast('Labour mobilisation order sent','warn')">Mobilise Labour</button></div></div></div>
+          <div class="ai-alert warn mb10"><div class="ai-alert-icon">📦</div><div style="flex:1"><div class="ai-alert-title">Site A cement consumption 8.4% above BOQ estimate</div><div class="ai-alert-body">Current cement consumption: 12.4 bags/sqm vs budgeted 11.45 bags/sqm. Possible causes: wastage or mix ratio issue. Recommend quality audit and consumption tracking review.</div><div class="ai-alert-actions"><button class="btn btn-warn btn-sm" onclick="showToast('Quality audit initiated','warn')">Initiate Audit</button></div></div></div>
+          <div class="ai-alert crit mb10"><div class="ai-alert-icon">⚠️</div><div style="flex:1"><div class="ai-alert-title">Site B TMT steel stock may run out in 6 days</div><div class="ai-alert-body">Current stock: 18 MT. Daily consumption: 3 MT. Estimated stock-out: 28 Jun 2026. Pending PO: 25 MT from Tata Steel (delivery: 25 Jun). Risk: 1–2 day gap if delivery delayed.</div><div class="ai-alert-actions"><button class="btn btn-crit btn-sm" onclick="showToast('Emergency indent raised','success')">Emergency Indent</button></div></div></div>
+          <div class="ai-alert warn mb10"><div class="ai-alert-icon">👷</div><div style="flex:1"><div class="ai-alert-title">BuildMax contractor productivity 11% below target</div><div class="ai-alert-body">RCC output: 89% of target for past 3 weeks. Root cause: 18 workers absent on average. Recommend performance review meeting and replacement of underperforming team leads.</div><div class="ai-alert-actions"><button class="btn btn-warn btn-sm" onclick="showToast('Performance review meeting scheduled','warn')">Schedule Review</button></div></div></div>
+          <div class="ai-alert mb10"><div class="ai-alert-icon">🔍</div><div style="flex:1"><div class="ai-alert-title">3 quality inspections overdue across projects</div><div class="ai-alert-body">QI-2026-119 (Site B, T1/F8) overdue 4 days. QI-2026-118 (Site C, T2/F2) overdue 2 days. QI-2026-117 (Site A, T4/F1) overdue 1 day. Pending engineer sign-off required.</div><div class="ai-alert-actions"><button class="btn btn-outline btn-sm" onclick="showToast('Reminder sent to site engineers','info')">Send Reminder</button></div></div></div>
+        </div>
+      </div>
+
+      <!-- Finance Intelligence -->
+      <div class="inner-content" id="ai-fin-intel">
+        <div class="flex fsb fac mb16">
+          <div class="card-title">AI Finance Intelligence — Anomaly Detection</div>
+          <span class="badge badge-crit">🚨 3 Active Anomalies</span>
+        </div>
+        <div class="ai-alert crit mb10"><div class="ai-alert-icon">🚨</div><div style="flex:1"><div class="ai-alert-title">Possible duplicate invoice — BM-4587 vs BM-4522</div><div class="ai-alert-body">Invoice BM-4587 (₹18.75L, 20 Jun) has 94% similarity to previously paid invoice BM-4522 (₹18.42L, 28 May). Same vendor, same material, overlapping quantities. HOLD payment pending verification.</div><div class="ai-alert-actions"><button class="btn btn-crit btn-sm" onclick="showToast('Payment hold placed — Accounts team notified','crit')">Hold Payment</button><button class="btn btn-outline btn-sm" onclick="showToast('Vendor queried for clarification','info')">Query Vendor</button></div></div></div>
+        <div class="ai-alert crit mb10"><div class="ai-alert-icon">⚠️</div><div style="flex:1"><div class="ai-alert-title">Vendor Elevate Systems changed bank account 2 days before payment</div><div class="ai-alert-body">Bank account update recorded 18 Jun 2026. Payment due 20 Jun 2026 for ₹15.00L. This pattern matches vendor fraud scenarios. Verify change with vendor directly before payment.</div><div class="ai-alert-actions"><button class="btn btn-crit btn-sm" onclick="showToast('Payment blocked — CFO alerted','crit')">Block Payment</button><button class="btn btn-warn btn-sm" onclick="showToast('Verification call initiated','warn')">Verify Vendor</button></div></div></div>
+        <div class="ai-alert warn mb10"><div class="ai-alert-icon">📊</div><div style="flex:1"><div class="ai-alert-title">Site C legal expense 240% above monthly average</div><div class="ai-alert-body">June 2026 legal expense: ₹12.50L vs monthly average ₹3.68L. Possible one-time settlement but requires MD approval. Check if this expense was pre-approved.</div><div class="ai-alert-actions"><button class="btn btn-warn btn-sm" onclick="showToast('CFO review requested','warn')">Review</button></div></div></div>
+        <div class="ai-alert mb10"><div class="ai-alert-icon">💳</div><div style="flex:1"><div class="ai-alert-title">3 payments below ₹10L threshold to same vendor in 48 hours</div><div class="ai-alert-body">Vendor: Urban Landscape Works. Payments: ₹9.8L + ₹9.6L + ₹9.4L over 19-20 Jun 2026. Total: ₹28.8L. Pattern suggests splitting to avoid approval limit. Review approval policy compliance.</div><div class="ai-alert-actions"><button class="btn btn-warn btn-sm" onclick="showToast('Policy violation flagged for audit','warn')">Flag for Audit</button></div></div></div>
+        <div class="ai-alert warn mb10"><div class="ai-alert-icon">📈</div><div style="flex:1"><div class="ai-alert-title">Site B electrical budget may overrun by ₹24.60 Lakh</div><div class="ai-alert-body">Current committed cost for electrical work: ₹89.60L vs approved budget ₹65.00L. Additional scope added without budget revision. Budget revision approval required immediately.</div><div class="ai-alert-actions"><button class="btn btn-primary btn-sm" onclick="showToast('Budget revision request initiated','info')">Initiate Budget Revision</button></div></div></div>
+      </div>
+
+      <!-- Collection Agent -->
+      <div class="inner-content" id="ai-collection">
+        <div class="kpi-grid mb16">
+          <div class="kpi-card info"><div class="kpi-label">Customers Contacted</div><div class="kpi-value" id="ai-contacted">84</div></div>
+          <div class="kpi-card"><div class="kpi-label">Reminders Sent</div><div class="kpi-value" id="ai-reminders">128</div></div>
+          <div class="kpi-card success"><div class="kpi-label">Promises to Pay</div><div class="kpi-value" id="ai-promises">42</div></div>
+          <div class="kpi-card success"><div class="kpi-label">Payments Received After Reminder</div><div class="kpi-value" id="ai-collected">₹8.40 Cr</div></div>
+          <div class="kpi-card crit"><div class="kpi-label">High-Risk Overdue</div><div class="kpi-value">12</div></div>
+        </div>
+        <div class="flex gap8 mb16">
+          <button class="btn btn-primary" onclick="runCollectionFollowup()">🤖 Run AI Collection Follow-Up</button>
+          <button class="btn btn-outline" onclick="showToast('WhatsApp campaign queued for 28 customers','info')">📱 WhatsApp Campaign</button>
+          <button class="btn btn-outline" onclick="showToast('Email reminders sent to 18 customers','info')">📧 Email Campaign</button>
+        </div>
+        <div class="table-wrap"><table><thead><tr><th>Customer</th><th>Unit</th><th>Due Amount</th><th>Days Overdue</th><th>Last Contact</th><th>Promise Date</th><th>Risk Level</th><th>AI Action</th></tr></thead><tbody id="collection-agent-tbody"></tbody></table></div>
+      </div>
+
+      <!-- Risk Centre -->
+      <div class="inner-content" id="ai-risk">
+        <div class="grid3 mb16">
+          <div class="kpi-card crit"><div class="kpi-label">High Risk Items</div><div class="kpi-value">5</div></div>
+          <div class="kpi-card warn"><div class="kpi-label">Medium Risk Items</div><div class="kpi-value">8</div></div>
+          <div class="kpi-card success"><div class="kpi-label">Monitored</div><div class="kpi-value">24</div></div>
+        </div>
+        <div class="table-wrap"><table><thead><tr><th>Risk Type</th><th>Project/Area</th><th>Severity</th><th>Probability</th><th>Financial Impact</th><th>AI Recommendation</th><th>Status</th></tr></thead><tbody>
+          <tr><td>Construction Delay</td><td>Site C — Tower 2</td><td><span class="badge badge-crit">High</span></td><td>78%</td><td>₹1.20 Cr</td><td>Mobilise 40 additional workers immediately</td><td><span class="badge badge-warn">Monitoring</span></td></tr>
+          <tr><td>Budget Overrun</td><td>Site B — Electrical</td><td><span class="badge badge-crit">High</span></td><td>82%</td><td>₹2.46 Cr</td><td>Initiate budget revision approval</td><td><span class="badge badge-crit">Action Needed</span></td></tr>
+          <tr><td>Collection Default</td><td>12 customers</td><td><span class="badge badge-crit">High</span></td><td>65%</td><td>₹8.40 Cr</td><td>Legal notice for 90+ day defaulters</td><td><span class="badge badge-warn">In Follow-up</span></td></tr>
+          <tr><td>Vendor Fraud Risk</td><td>Elevate Systems</td><td><span class="badge badge-crit">High</span></td><td>45%</td><td>₹15.00 L</td><td>Verify bank change directly with vendor</td><td><span class="badge badge-crit">Payment Held</span></td></tr>
+          <tr><td>Material Shortage</td><td>Site B — TMT Steel</td><td><span class="badge badge-warn">Medium</span></td><td>70%</td><td>₹0.80 Cr</td><td>Expedite PO from Tata Steel</td><td><span class="badge badge-info">PO Raised</span></td></tr>
+          <tr><td>RERA Compliance</td><td>All Projects</td><td><span class="badge badge-warn">Medium</span></td><td>30%</td><td>₹5.00 Cr</td><td>Ensure quarterly updates filed on time</td><td><span class="badge badge-success">On Track</span></td></tr>
+        </tbody></table></div>
+      </div>
+
+      <!-- Activity Log -->
+      <div class="inner-content" id="ai-log">
+        <div class="flex fsb mb12"><div class="card-title">AI Activity Log — All Operations</div><button class="btn btn-outline btn-sm" onclick="exportCSV('ai-log')">📥 Export</button></div>
+        <div class="table-wrap"><table><thead><tr><th>Time</th><th>AI Module</th><th>Action</th><th>Entity</th><th>Result</th><th>Value</th></tr></thead><tbody id="ai-log-tbody"></tbody></table></div>
+      </div>
+    </div>
+
+  </div><!-- end content-area -->
+</div><!-- end main-app -->
+
+<!-- ============ MODALS ============ -->
+<!-- Approval Modal -->
+<div class="modal-overlay" id="approve-modal">
+  <div class="modal">
+    <div class="modal-header"><div class="modal-title" id="approve-modal-title">Confirm Approval</div><button class="modal-close" onclick="closeModal('approve-modal')">✕</button></div>
+    <div class="modal-body"><p id="approve-modal-body">Are you sure you want to approve this request?</p><div class="form-group mt16"><label class="form-label">Comments (Optional)</label><textarea class="form-textarea" id="approve-comments" placeholder="Add remarks..."></textarea></div></div>
+    <div class="modal-footer"><button class="btn btn-outline" onclick="closeModal('approve-modal')">Cancel</button><button class="btn btn-success" id="approve-confirm-btn">Confirm Approve</button></div>
+  </div>
+</div>
+
+<!-- Reject Modal -->
+<div class="modal-overlay" id="reject-modal">
+  <div class="modal">
+    <div class="modal-header"><div class="modal-title">Confirm Rejection</div><button class="modal-close" onclick="closeModal('reject-modal')">✕</button></div>
+    <div class="modal-body"><p id="reject-modal-body">Please provide a reason for rejection.</p><div class="form-group mt16"><label class="form-label">Rejection Reason *</label><textarea class="form-textarea" id="reject-reason" placeholder="State reason..." required></textarea></div></div>
+    <div class="modal-footer"><button class="btn btn-outline" onclick="closeModal('reject-modal')">Cancel</button><button class="btn btn-crit" id="reject-confirm-btn">Confirm Reject</button></div>
+  </div>
+</div>
+
+<!-- Project Detail Modal -->
+<div class="modal-overlay" id="project-modal">
+  <div class="modal modal-lg">
+    <div class="modal-header"><div class="modal-title" id="project-modal-title">Project Details</div><button class="modal-close" onclick="closeModal('project-modal')">✕</button></div>
+    <div class="modal-body" id="project-modal-body"></div>
+    <div class="modal-footer"><button class="btn btn-primary" onclick="closeModal('project-modal')">Close</button></div>
+  </div>
+</div>
+
+<!-- Task Modal -->
+<div class="modal-overlay" id="task-modal">
+  <div class="modal">
+    <div class="modal-header"><div class="modal-title">Add New Task</div><button class="modal-close" onclick="closeModal('task-modal')">✕</button></div>
+    <div class="modal-body">
+      <form id="task-form" onsubmit="submitTask(event)">
+        <div class="form-group"><label class="form-label">Task Title</label><input class="form-input" id="t-title" placeholder="Enter task title" required></div>
+        <div class="form-row"><div class="form-group"><label class="form-label">Assigned To</label><select class="form-select" id="t-emp"><option>Rohan Kulkarni</option><option>Nikhil Patil</option><option>Sneha Deshmukh</option><option>Akash Shinde</option><option>Aditya Joshi</option><option>Sameer Khan</option><option>Pooja Iyer</option></select></div><div class="form-group"><label class="form-label">Department</label><select class="form-select" id="t-dept"><option>Site Execution</option><option>Project Management</option><option>Procurement</option><option>Sales</option><option>Finance</option><option>CRM</option></select></div></div>
+        <div class="form-row"><div class="form-group"><label class="form-label">Project</label><select class="form-select" id="t-proj"><option>Site A</option><option>Site B</option><option>Site C</option><option>Corporate</option></select></div><div class="form-group"><label class="form-label">Due Date</label><input class="form-input" type="date" id="t-due" required></div></div>
+        <div class="form-group"><label class="form-label">Priority</label><select class="form-select" id="t-priority"><option>High</option><option>Medium</option><option>Low</option></select></div>
+        <div class="form-group"><label class="form-label">Description</label><textarea class="form-textarea" id="t-desc" placeholder="Task description..."></textarea></div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Create Task</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Add Lead Modal -->
+<div class="modal-overlay" id="add-lead-modal">
+  <div class="modal modal-lg">
+    <div class="modal-header"><div class="modal-title">Add New Lead</div><button class="modal-close" onclick="closeModal('add-lead-modal')">✕</button></div>
+    <div class="modal-body">
+      <form id="lead-form" onsubmit="submitLead(event)">
+        <div class="form-row"><div class="form-group"><label class="form-label">Customer Name</label><input class="form-input" id="l-name" required placeholder="Full Name"></div><div class="form-group"><label class="form-label">Phone</label><input class="form-input" id="l-phone" required placeholder="+91 XXXXX XXXXX"></div></div>
+        <div class="form-row"><div class="form-group"><label class="form-label">Email</label><input class="form-input" id="l-email" type="email" placeholder="email@example.com"></div><div class="form-group"><label class="form-label">Lead Source</label><select class="form-select" id="l-source"><option>Website</option><option>Google Ads</option><option>Meta Ads</option><option>Property Portal</option><option>Channel Partner</option><option>Walk-In</option><option>Referral</option><option>WhatsApp</option></select></div></div>
+        <div class="form-row"><div class="form-group"><label class="form-label">Preferred Project</label><select class="form-select" id="l-project"><option>Aarohan Grande</option><option>Business Bay</option><option>Aarohan Serenity</option><option>Any</option></select></div><div class="form-group"><label class="form-label">Unit Type</label><select class="form-select" id="l-type"><option>2 BHK</option><option>3 BHK</option><option>Office</option><option>Studio</option></select></div></div>
+        <div class="form-row"><div class="form-group"><label class="form-label">Budget (₹)</label><input class="form-input" id="l-budget" placeholder="8500000"></div><div class="form-group"><label class="form-label">Assigned Executive</label><select class="form-select" id="l-exec"><option>Rahul Sharma</option><option>Priya Desai</option><option>Amit Joshi</option><option>Sneha Patil</option></select></div></div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Add Lead</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Material Request Modal -->
+<div class="modal-overlay" id="material-request-modal">
+  <div class="modal">
+    <div class="modal-header"><div class="modal-title">Create Material Request</div><button class="modal-close" onclick="closeModal('material-request-modal')">✕</button></div>
+    <div class="modal-body">
+      <form onsubmit="submitMaterialRequest(event)">
+        <div class="form-row"><div class="form-group"><label class="form-label">Material</label><select class="form-select" id="mr-material"><option>TMT Steel Fe500D</option><option>OPC 53 Cement</option><option>River Sand</option><option>Coarse Aggregate</option><option>AAC Blocks</option><option>CPVC Pipes</option><option>Electrical Cable</option><option>Waterproofing Chemical</option></select></div><div class="form-group"><label class="form-label">Quantity</label><input class="form-input" type="number" id="mr-qty" required placeholder="0"></div></div>
+        <div class="form-row"><div class="form-group"><label class="form-label">Unit</label><select class="form-select" id="mr-unit"><option>MT</option><option>Bags</option><option>Rmt</option><option>Nos</option><option>sqm</option><option>Litres</option></select></div><div class="form-group"><label class="form-label">Required By</label><input class="form-input" type="date" id="mr-date" required></div></div>
+        <div class="form-group"><label class="form-label">Purpose / Remarks</label><textarea class="form-textarea" id="mr-remarks" placeholder="For which tower/floor/activity..."></textarea></div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Submit Material Request</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Transaction Modal -->
+<div class="modal-overlay" id="txn-modal">
+  <div class="modal">
+    <div class="modal-header"><div class="modal-title">Add Transaction</div><button class="modal-close" onclick="closeModal('txn-modal')">✕</button></div>
+    <div class="modal-body">
+      <form onsubmit="submitTransaction(event)">
+        <div class="form-row"><div class="form-group"><label class="form-label">Date</label><input class="form-input" type="date" id="txn-date" required></div><div class="form-group"><label class="form-label">Type</label><select class="form-select" id="txn-type"><option>Credit</option><option>Debit</option></select></div></div>
+        <div class="form-row"><div class="form-group"><label class="form-label">Category</label><select class="form-select" id="txn-cat"><option>Customer Collection</option><option>Vendor Payment</option><option>Contractor Payment</option><option>Salary</option><option>Marketing</option><option>Legal</option><option>Office Expense</option><option>Professional Fee</option><option>Loan Receipt</option><option>Miscellaneous</option></select></div><div class="form-group"><label class="form-label">Amount (₹)</label><input class="form-input" type="number" id="txn-amount" required placeholder="0"></div></div>
+        <div class="form-group"><label class="form-label">Description</label><input class="form-input" id="txn-desc" required placeholder="Transaction description"></div>
+        <div class="form-row"><div class="form-group"><label class="form-label">Project</label><select class="form-select" id="txn-proj"><option>Site A</option><option>Site B</option><option>Site C</option><option>Corporate</option></select></div><div class="form-group"><label class="form-label">Mode</label><select class="form-select" id="txn-mode"><option>NEFT</option><option>RTGS</option><option>Cheque</option><option>UPI</option><option>Cash</option></select></div></div>
+        <div class="form-group"><label class="form-label">Party Name</label><input class="form-input" id="txn-party" placeholder="Vendor / Customer / Bank name"></div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Record Transaction</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Vendor Modal -->
+<div class="modal-overlay" id="vendor-modal">
+  <div class="modal">
+    <div class="modal-header"><div class="modal-title">Add New Vendor</div><button class="modal-close" onclick="closeModal('vendor-modal')">✕</button></div>
+    <div class="modal-body">
+      <form onsubmit="submitVendor(event)">
+        <div class="form-row"><div class="form-group"><label class="form-label">Vendor Name</label><input class="form-input" id="v-name" required placeholder="Company Name"></div><div class="form-group"><label class="form-label">Category</label><select class="form-select" id="v-cat"><option>Material Supplier</option><option>Contractor</option><option>Consultant</option><option>Service Provider</option></select></div></div>
+        <div class="form-row"><div class="form-group"><label class="form-label">Contact Person</label><input class="form-input" id="v-contact" placeholder="Name"></div><div class="form-group"><label class="form-label">Phone</label><input class="form-input" id="v-phone" placeholder="+91 XXXXX XXXXX"></div></div>
+        <div class="form-group"><label class="form-label">GST Number</label><input class="form-input" id="v-gst" placeholder="27XXXXX1234X1ZX"></div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Add Vendor</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Issue Modal -->
+<div class="modal-overlay" id="issue-modal">
+  <div class="modal">
+    <div class="modal-header"><div class="modal-title">Log New Issue</div><button class="modal-close" onclick="closeModal('issue-modal')">✕</button></div>
+    <div class="modal-body">
+      <form onsubmit="submitIssue(event)">
+        <div class="form-group"><label class="form-label">Issue Title</label><input class="form-input" id="iss-title" required placeholder="Brief description"></div>
+        <div class="form-row"><div class="form-group"><label class="form-label">Priority</label><select class="form-select" id="iss-priority"><option>High</option><option>Medium</option><option>Low</option></select></div><div class="form-group"><label class="form-label">Type</label><select class="form-select" id="iss-type"><option>Material Delay</option><option>Labour Shortage</option><option>Drawing Pending</option><option>Quality Hold</option><option>Safety Stop</option><option>Approval Pending</option><option>Contractor Issue</option></select></div></div>
+        <div class="form-row"><div class="form-group"><label class="form-label">Financial Impact (₹L)</label><input class="form-input" type="number" id="iss-impact" placeholder="0"></div><div class="form-group"><label class="form-label">Delay Impact (Days)</label><input class="form-input" type="number" id="iss-delay" placeholder="0"></div></div>
+        <div class="form-group"><label class="form-label">Description</label><textarea class="form-textarea" id="iss-desc" placeholder="Detailed description of the issue..."></textarea></div>
+        <button type="submit" class="btn btn-crit" style="width:100%;justify-content:center">Log Issue</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Report Modal -->
+<div class="modal-overlay" id="report-modal">
+  <div class="modal modal-lg">
+    <div class="modal-header"><div class="modal-title" id="report-modal-title">Report</div><button class="modal-close" onclick="closeModal('report-modal')">✕</button></div>
+    <div class="modal-body" id="report-modal-body"></div>
+    <div class="modal-footer"><button class="btn btn-primary" onclick="printReport()">🖨 Print</button><button class="btn btn-outline" onclick="exportCSV('report')">📥 Export CSV</button><button class="btn btn-ghost" onclick="closeModal('report-modal')">Close</button></div>
+  </div>
+</div>
+
+<!-- Bill Modal -->
+<div class="modal-overlay" id="bill-modal">
+  <div class="modal">
+    <div class="modal-header"><div class="modal-title">New RA Bill</div><button class="modal-close" onclick="closeModal('bill-modal')">✕</button></div>
+    <div class="modal-body">
+      <form onsubmit="submitBill(event)">
+        <div class="form-row"><div class="form-group"><label class="form-label">Contractor</label><select class="form-select" id="bill-contr"><option>BuildMax Contractors</option><option>Spark Electricals</option><option>AquaFlow Plumbing</option><option>SecureFire Systems</option><option>Prime Aluminium</option></select></div><div class="form-group"><label class="form-label">RA Bill Amount (₹L)</label><input class="form-input" type="number" id="bill-amount" required placeholder="0"></div></div>
+        <div class="form-group"><label class="form-label">Work Description</label><input class="form-input" id="bill-work" required placeholder="Work description for this bill"></div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Submit RA Bill</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Add Employee Modal -->
+<div class="modal-overlay" id="add-emp-modal">
+  <div class="modal">
+    <div class="modal-header"><div class="modal-title">Add Employee</div><button class="modal-close" onclick="closeModal('add-emp-modal')">✕</button></div>
+    <div class="modal-body">
+      <form onsubmit="submitEmployee(event)">
+        <div class="form-row"><div class="form-group"><label class="form-label">Full Name</label><input class="form-input" id="ae-name" required placeholder="Full Name"></div><div class="form-group"><label class="form-label">Designation</label><input class="form-input" id="ae-design" required placeholder="Designation"></div></div>
+        <div class="form-row"><div class="form-group"><label class="form-label">Department</label><select class="form-select" id="ae-dept"><option>Site Execution</option><option>Project Management</option><option>Finance</option><option>Sales</option><option>CRM</option><option>Procurement</option><option>HR</option></select></div><div class="form-group"><label class="form-label">Project</label><select class="form-select" id="ae-proj"><option>Site A</option><option>Site B</option><option>Site C</option><option>Corporate</option></select></div></div>
+        <div class="form-row"><div class="form-group"><label class="form-label">Mobile</label><input class="form-input" id="ae-phone" placeholder="+91 XXXXX XXXXX"></div><div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" id="ae-email" placeholder="email@company.com"></div></div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Add Employee</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Follow-up Modal -->
+<div class="modal-overlay" id="followup-modal">
+  <div class="modal">
+    <div class="modal-header"><div class="modal-title">Schedule Follow-Up</div><button class="modal-close" onclick="closeModal('followup-modal')">✕</button></div>
+    <div class="modal-body">
+      <form onsubmit="submitFollowup(event)">
+        <div class="form-row"><div class="form-group"><label class="form-label">Customer Name</label><input class="form-input" id="fu-name" required placeholder="Customer Name"></div><div class="form-group"><label class="form-label">Follow-Up Date</label><input class="form-input" type="date" id="fu-date" required></div></div>
+        <div class="form-row"><div class="form-group"><label class="form-label">Type</label><select class="form-select" id="fu-type"><option>Phone Call</option><option>Email</option><option>WhatsApp</option><option>Site Visit</option><option>Meeting</option></select></div><div class="form-group"><label class="form-label">Assigned To</label><select class="form-select" id="fu-exec"><option>Rahul Sharma</option><option>Priya Desai</option><option>Amit Joshi</option></select></div></div>
+        <div class="form-group"><label class="form-label">Notes</label><textarea class="form-textarea" id="fu-notes" placeholder="What to discuss..."></textarea></div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Schedule</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Progress Update Modal -->
+<div class="modal-overlay" id="progress-modal">
+  <div class="modal">
+    <div class="modal-header"><div class="modal-title">Update Activity Progress</div><button class="modal-close" onclick="closeModal('progress-modal')">✕</button></div>
+    <div class="modal-body">
+      <form onsubmit="submitProgressUpdate(event)">
+        <div class="form-row"><div class="form-group"><label class="form-label">Tower</label><select class="form-select" id="pu-tower"><option>Tower 1</option><option>Tower 2</option><option>Tower 3</option><option>Tower 4</option></select></div><div class="form-group"><label class="form-label">Floor</label><select class="form-select" id="pu-floor"><option>Ground Floor</option><option>Floor 1</option><option>Floor 2</option><option>Floor 3</option><option>Floor 4</option><option>Floor 5</option></select></div></div>
+        <div class="form-group"><label class="form-label">Activity</label><select class="form-select" id="pu-activity"><option>RCC Casting</option><option>Masonry</option><option>Plastering</option><option>Electrical</option><option>Plumbing</option><option>Waterproofing</option></select></div>
+        <div class="form-row"><div class="form-group"><label class="form-label">Planned %</label><input class="form-input" type="number" id="pu-planned" min="0" max="100" placeholder="0"></div><div class="form-group"><label class="form-label">Actual %</label><input class="form-input" type="number" id="pu-actual" min="0" max="100" placeholder="0"></div></div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Update Progress</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ── HOSTING CONFIG ──────────────────────────────────────────────
+  // Running locally with `docker compose up`? Leave this as-is — it
+  // works automatically via nginx's reverse proxy (see nginx.conf).
+  //
+  // Deployed to Render (or any host where frontend and backend get
+  // separate URLs)? Replace the URL below with your actual backend
+  // service URL from the Render dashboard, keeping the "/api" at the end.
+  if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+    window.MAVIX_API_BASE = 'https://REPLACE-WITH-YOUR-BACKEND-URL.onrender.com/api';
+  }
+</script>
+<script src="js/api.js"></script>
+<script src="js/state.js"></script>
+<script src="js/app-legacy.js"></script>
+</body>
+</html>

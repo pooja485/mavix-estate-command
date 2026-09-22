@@ -1,0 +1,585 @@
+// ============================================================
+// MAVIX ESTATE COMMAND — Prisma schema
+// Multi-tenant model: every business table carries tenantId and
+// is always queried/written scoped to the caller's tenant
+// (enforced in src/middleware/tenant.ts + src/db/scopedClient.ts).
+// ============================================================
+
+generator client {
+  provider      = "prisma-client-js"
+  // node:20-alpine ships OpenSSL 3.0; pinning this explicitly means the
+  // correct query engine is baked into the image at build time and never
+  // needs to be fetched/verified at container startup (which was failing
+  // under the non-root runtime user with "Can't write to .../engines").
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ------------------------------------------------------------
+// Platform / tenancy
+// ------------------------------------------------------------
+
+enum TenantStatus {
+  ACTIVE
+  SUSPENDED
+  TRIAL
+}
+
+model Tenant {
+  id          String       @id @default(uuid())
+  name        String
+  slug        String       @unique
+  status      TenantStatus @default(TRIAL)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  users              User[]
+  projects           Project[]
+  approvals          Approval[]
+  leads              Lead[]
+  followups          Followup[]
+  units              Unit[]
+  customers          Customer[]
+  bookings           Booking[]
+  collections        Collection[]
+  transactions       Transaction[]
+  vendors            Vendor[]
+  employees          Employee[]
+  tasks              Task[]
+  notifications      Notification[]
+  dprRecords         DprRecord[]
+  boqItems           BoqItem[]
+  materialItems      MaterialItem[]
+  materialRequests   MaterialRequest[]
+  progressItems      ProgressItem[]
+  issues             Issue[]
+  collectionAgent    CollectionAgentRecord[]
+  aiLogs             AiLog[]
+  auditLogs          AuditLog[]
+  portfolioItems     PortfolioItem[]
+  bankAccounts       BankAccount[]
+  reraAccounts       ReraAccount[]
+
+  @@map("tenants")
+}
+
+enum UserRole {
+  SUPER_ADMIN
+  MANAGING_DIRECTOR
+  CFO
+  PROJECT_DIRECTOR
+  SALES_HEAD
+  PROJECT_MANAGER
+  ACCOUNTS_MANAGER
+  CRM_MANAGER
+  SITE_ENGINEER
+  EMPLOYEE
+}
+
+model User {
+  id           String   @id @default(uuid())
+  tenantId     String
+  tenant       Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  name         String
+  email        String
+  passwordHash String
+  role         UserRole @default(EMPLOYEE)
+  isActive     Boolean  @default(true)
+  lastLoginAt  DateTime?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  refreshTokens RefreshToken[]
+  passwordResetTokens PasswordResetToken[]
+
+  @@unique([tenantId, email])
+  @@map("users")
+}
+
+model RefreshToken {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash String   @unique
+  expiresAt DateTime
+  revokedAt DateTime?
+  createdAt DateTime @default(now())
+
+  @@map("refresh_tokens")
+}
+
+model PasswordResetToken {
+  id        String    @id @default(uuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash String    @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  @@map("password_reset_tokens")
+}
+
+// ------------------------------------------------------------
+// Core real-estate domain
+// ------------------------------------------------------------
+
+model Project {
+  id          String   @id @default(uuid())
+  tenantId    String
+  tenant      Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  code        String   // e.g. site-a
+  name        String   // e.g. Aarohan Grande
+  physicalPct Int      @default(0)
+  financialPct Int     @default(0)
+  manpower    Int      @default(0)
+  delayedTasks Int     @default(0)
+  safetyScore Int      @default(0)
+  qualityScore Int     @default(0)
+  contractors Int      @default(0)
+  openIssues  Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([tenantId, code])
+  @@map("projects")
+}
+
+enum ApprovalStatus {
+  pending
+  approved
+  rejected
+}
+
+model Approval {
+  id        String         @id @default(uuid())
+  tenantId  String
+  tenant    Tenant         @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  code      String         // APR-001
+  type      String
+  desc      String
+  amount    String
+  icon      String   @default("📄")
+  status    ApprovalStatus @default(pending)
+  project   String
+  raisedBy  String
+  date      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([tenantId, code])
+  @@map("approvals")
+}
+
+model Lead {
+  id        String   @id @default(uuid())
+  tenantId  String
+  tenant    Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  code      String   // LD-001
+  name      String
+  phone     String
+  email     String
+  source    String
+  project   String
+  budget    String
+  type      String
+  timeline  String
+  score     Int      @default(0)
+  exec      String
+  last      String
+  next      String
+  stage     String   @default("New")
+  status    String   @default("Active")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([tenantId, code])
+  @@map("leads")
+}
+
+model Followup {
+  id        String   @id @default(uuid())
+  tenantId  String
+  tenant    Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  lead      String
+  customer  String
+  phone     String
+  stage     String
+  date      String
+  type      String
+  exec      String
+  last      String
+  done      Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("followups")
+}
+
+model Unit {
+  id        String   @id @default(uuid())
+  tenantId  String
+  tenant    Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  code      String   // A-T1-0101
+  project   String
+  tower     String
+  floor     String
+  unitNo    String
+  type      String
+  carpet    Int
+  base      BigInt
+  status    String   @default("Available")
+  customer  String   @default("")
+  bookDate  String   @default("")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([tenantId, code])
+  @@map("units")
+}
+
+model Customer {
+  id         String   @id @default(uuid())
+  tenantId   String
+  tenant     Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  name       String
+  unit       String
+  project    String
+  agreement  BigInt
+  received   BigInt
+  pending    BigInt
+  nextDemand String
+  overdue    BigInt   @default(0)
+  daysOD     Int      @default(0)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("customers")
+}
+
+model Booking {
+  id        String   @id @default(uuid())
+  tenantId  String
+  tenant    Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  date      String
+  customer  String
+  unit      String
+  project   String
+  value     String
+  amount    String
+  exec      String
+  mode      String
+  createdAt DateTime @default(now())
+
+  @@map("bookings")
+}
+
+model Collection {
+  id        String   @id @default(uuid())
+  tenantId  String
+  tenant    Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  date      String
+  customer  String
+  unit      String
+  project   String
+  type      String
+  amount    BigInt
+  mode      String
+  ref       String
+  status    String   @default("Cleared")
+  createdAt DateTime @default(now())
+
+  @@map("collections")
+}
+
+model Transaction {
+  id        String   @id @default(uuid())
+  tenantId  String
+  tenant    Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  code      String   // TXN-0842
+  date      String
+  cat       String
+  desc      String
+  project   String
+  party     String
+  mode      String
+  debit     BigInt   @default(0)
+  credit    BigInt   @default(0)
+  status    String   @default("Pending")
+  enteredBy String
+  createdAt DateTime @default(now())
+
+  @@unique([tenantId, code])
+  @@map("transactions")
+}
+
+model Vendor {
+  id          String   @id @default(uuid())
+  tenantId    String
+  tenant      Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  code        String   // V-001
+  name        String
+  cat         String
+  contact     String
+  projects    String
+  value       String
+  outstanding String
+  quality     Int
+  delivery    Int
+  risk        String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([tenantId, code])
+  @@map("vendors")
+}
+
+model Employee {
+  id        String   @id @default(uuid())
+  tenantId  String
+  tenant    Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  code      String   // EMP-001
+  name      String
+  design    String
+  dept      String
+  project   String
+  tasks     Int      @default(0)
+  perf      Int      @default(0)
+  status    String   @default("Present")
+  phone     String   @default("")
+  email     String   @default("")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([tenantId, code])
+  @@map("employees")
+}
+
+model Task {
+  id        String   @id @default(uuid())
+  tenantId  String
+  tenant    Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  code      String   // T-001
+  title     String
+  emp       String
+  dept      String
+  project   String
+  due       String
+  priority  String
+  status    String   @default("Assigned")
+  update    String   @default("")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([tenantId, code])
+  @@map("tasks")
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  tenantId  String
+  tenant    Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  cat       String
+  title     String
+  body      String
+  unread    Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  @@map("notifications")
+}
+
+model DprRecord {
+  id         String   @id @default(uuid())
+  tenantId   String
+  tenant     Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  date       String
+  tower      String
+  floor      String
+  activity   String
+  contractor String
+  planned    Int
+  actual     Int
+  labour     Int
+  weather    String
+  status     String   @default("Submitted")
+  createdAt  DateTime @default(now())
+
+  @@map("dpr_records")
+}
+
+model BoqItem {
+  id         String   @id @default(uuid())
+  tenantId   String
+  tenant     Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  code       String
+  cat        String
+  budget     BigInt
+  committed  BigInt
+  actual     BigInt
+  paid       BigInt
+  remaining  BigInt
+  variance   BigInt
+  status     String
+
+  @@unique([tenantId, code])
+  @@map("boq_items")
+}
+
+model MaterialItem {
+  id        String   @id @default(uuid())
+  tenantId  String
+  tenant    Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  mat       String
+  unit      String
+  opening   Int
+  received  Int
+  consumed  Int
+  closing   Int
+  min       Int
+  value     Float
+  alert     String   @default("")
+  updatedAt DateTime @updatedAt
+
+  @@map("material_items")
+}
+
+model MaterialRequest {
+  id          String   @id @default(uuid())
+  tenantId    String
+  tenant      Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  material    String
+  qty         Int
+  unit        String
+  project     String
+  requestedBy String
+  status      String   @default("Pending")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("material_requests")
+}
+
+model ProgressItem {
+  id         String   @id @default(uuid())
+  tenantId   String
+  tenant     Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  tower      String
+  floor      String
+  activity   String
+  contractor String
+  planned    Int
+  actual     Int
+  delay      Int      @default(0)
+  eng        String
+  status     String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("progress_items")
+}
+
+model Issue {
+  id        String   @id @default(uuid())
+  tenantId  String
+  tenant    Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  title     String
+  priority  String
+  project   String
+  type      String
+  impact    Int      @default(0)
+  delay     Int      @default(0)
+  owner     String
+  due       String
+  status    String   @default("Open")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("issues")
+}
+
+model CollectionAgentRecord {
+  id        String   @id @default(uuid())
+  tenantId  String
+  tenant    Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  customer  String
+  unit      String
+  due       BigInt
+  days      Int
+  last      String
+  promise   String   @default("")
+  risk      String
+  updatedAt DateTime @updatedAt
+
+  @@map("collection_agent_records")
+}
+
+model AiLog {
+  id        String   @id @default(uuid())
+  tenantId  String
+  tenant    Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  time      String
+  module    String
+  action    String
+  entity    String
+  result    String
+  value     String
+  createdAt DateTime @default(now())
+
+  @@map("ai_logs")
+}
+
+model AuditLog {
+  id        String   @id @default(uuid())
+  tenantId  String
+  tenant    Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  user      String
+  role      String
+  module    String
+  action    String
+  desc      String
+  ip        String   @default("")
+  createdAt DateTime @default(now())
+
+  @@map("audit_logs")
+}
+
+model PortfolioItem {
+  id        String   @id @default(uuid())
+  tenantId  String
+  tenant    Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  project   String
+  data      Json
+  updatedAt DateTime @updatedAt
+
+  @@map("portfolio_items")
+}
+
+model BankAccount {
+  id        String   @id @default(uuid())
+  tenantId  String
+  tenant    Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  bankName  String
+  accountNo String
+  type      String
+  balance   BigInt
+  project   String   @default("Corporate")
+
+  @@map("bank_accounts")
+}
+
+model ReraAccount {
+  id           String   @id @default(uuid())
+  tenantId     String
+  tenant       Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  project      String
+  reraNo       String
+  accountNo    String
+  balance      BigInt
+  withdrawable BigInt
+
+  @@map("rera_accounts")
+}

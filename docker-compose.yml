@@ -1,0 +1,57 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: mavix
+      POSTGRES_PASSWORD: mavix_password
+      POSTGRES_DB: mavix_estate
+    ports:
+      - "5433:5432"
+    volumes:
+      - mavix_pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mavix -d mavix_estate"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      PORT: 4000
+      DATABASE_URL: postgresql://mavix:mavix_password@postgres:5432/mavix_estate?schema=public
+      JWT_ACCESS_SECRET: ${JWT_ACCESS_SECRET:-dev_access_secret_change_me_please_16plus}
+      JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET:-dev_refresh_secret_change_me_please_16plus}
+      JWT_ACCESS_TTL: 15m
+      JWT_REFRESH_TTL_DAYS: 30
+      CORS_ORIGINS: http://localhost:8080
+      RATE_LIMIT_WINDOW_MS: 900000
+      RATE_LIMIT_MAX: 300
+      LOG_LEVEL: info
+      PLATFORM_ADMIN_KEY: ${PLATFORM_ADMIN_KEY:-}
+    ports:
+      - "4000:4000"
+    # Applies the committed migration in prisma/migrations/ (already
+    # included and pre-validated against a real PostgreSQL instance).
+    command: sh -c "npx prisma migrate deploy && npx prisma db seed && node dist/index.js"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "8080:8080"
+
+volumes:
+  mavix_pg_data:

@@ -1,0 +1,29 @@
+# Caddy reverse proxy config — gives you free, auto-renewing HTTPS with
+# zero manual certificate work. Caddy talks to Let's Encrypt on its own.
+#
+# USAGE:
+#   1. Point your domain's DNS A record at this server's public IP.
+#   2. Replace "yourdomain.com" below with your real domain.
+#   3. Run: docker compose -f docker-compose.yml -f docker-compose.tls.yml up -d
+#   4. Caddy automatically gets a certificate the first time it starts —
+#      no certbot, no manual renewal, it just works and keeps renewing itself.
+#
+# For local testing without a real domain, use "localhost" below instead —
+# Caddy will generate a locally-trusted self-signed certificate.
+
+yourdomain.com {
+	reverse_proxy frontend:8080
+
+	encode gzip
+
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "SAMEORIGIN"
+	}
+}
+
+# Optional: redirect the bare www. version too, if you use one
+# www.yourdomain.com {
+# 	redir https://yourdomain.com{uri} permanent
+# }
