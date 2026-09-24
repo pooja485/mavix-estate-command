@@ -56,13 +56,7 @@ async function handleLogout(){
   document.getElementById('login-btn-text').textContent='Sign In to Command Centre';
   document.getElementById('login-spinner').style.display='none';
   showToast('Signed out successfully','info');
-}
-function fillDemo(){
-  document.getElementById('li-slug').value='aarohan-realty';
-  document.getElementById('li-email').value='admin@aarohanrealty.com';
-  document.getElementById('li-pass').value='Admin@123';
-  document.getElementById('li-role').value='Super Admin';
-  showToast('Demo credentials loaded','info');
+  
 }
 function togglePass(){
   const f=document.getElementById('li-pass');

@@ -17,4 +17,9 @@ const schema = z.object({
   enteredBy: z.string().min(1),
 });
 
-export default buildCrudRouter({ model: prisma.transaction, createSchema: schema, orderBy: { createdAt: 'desc' } });
+export default buildCrudRouter({
+  model: prisma.transaction,
+  createSchema: schema,
+  orderBy: { createdAt: 'desc' },
+  writeRoles: ['SUPER_ADMIN', 'MANAGING_DIRECTOR', 'CFO', 'ACCOUNTS_MANAGER'],
+});

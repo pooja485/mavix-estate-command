@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { AnyZodObject, ZodSchema } from 'zod';
-import { requireAuth, tenantIdOf } from '../middleware/auth';
+import { requireAuth, requireRole, tenantIdOf } from '../middleware/auth';
 import { asyncHandler } from './asyncHandler';
 import { AppError } from '../utils/AppError';
 
@@ -19,10 +19,12 @@ export interface CrudOptions {
   /** Zod object schema used to validate the body on create (partial-applied for update) */
   createSchema: AnyZodObject;
   updateSchema?: ZodSchema<any>;
-  /** Default sort */
+    /** Default sort */
   orderBy?: Record<string, 'asc' | 'desc'>;
   /** Max page size */
   maxPageSize?: number;
+  readRoles?: string[];
+  writeRoles?: string[];
 }
 
 /**
@@ -32,12 +34,16 @@ export interface CrudOptions {
  */
 export function buildCrudRouter(opts: CrudOptions): Router {
   const router = Router();
-  const { model, createSchema, updateSchema, orderBy, maxPageSize = 500 } = opts;
+    const { model, createSchema, updateSchema, orderBy, maxPageSize = 500, readRoles, writeRoles } = opts;
 
   router.use(requireAuth);
 
+  const readGuard = readRoles ? requireRole(...readRoles) : (_req: any, _res: any, next: any) => next();
+  const writeGuard = writeRoles ? requireRole(...writeRoles) : (_req: any, _res: any, next: any) => next();
+
   router.get(
     '/',
+    readGuard,
     asyncHandler(async (req, res) => {
       const tenantId = tenantIdOf(req);
       const take = Math.min(Number(req.query.limit) || maxPageSize, maxPageSize);
@@ -50,8 +56,9 @@ export function buildCrudRouter(opts: CrudOptions): Router {
     })
   );
 
-  router.get(
+    router.get(
     '/:id',
+    readGuard,
     asyncHandler(async (req, res) => {
       const tenantId = tenantIdOf(req);
       const item = await model.findFirst({ where: { id: req.params.id, tenantId } });
@@ -60,8 +67,9 @@ export function buildCrudRouter(opts: CrudOptions): Router {
     })
   );
 
-  router.post(
+    router.post(
     '/',
+    writeGuard,
     asyncHandler(async (req, res) => {
       const tenantId = tenantIdOf(req);
       const body = createSchema.parse(req.body);
@@ -70,8 +78,9 @@ export function buildCrudRouter(opts: CrudOptions): Router {
     })
   );
 
-  router.patch(
+    router.patch(
     '/:id',
+    writeGuard,
     asyncHandler(async (req, res) => {
       const tenantId = tenantIdOf(req);
       const existing = await model.findFirst({ where: { id: req.params.id, tenantId } });
@@ -83,8 +92,9 @@ export function buildCrudRouter(opts: CrudOptions): Router {
     })
   );
 
-  router.delete(
+    router.delete(
     '/:id',
+    writeGuard,
     asyncHandler(async (req, res) => {
       const tenantId = tenantIdOf(req);
       const existing = await model.findFirst({ where: { id: req.params.id, tenantId } });

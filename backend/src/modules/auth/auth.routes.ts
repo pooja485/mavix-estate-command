@@ -126,9 +126,9 @@ router.post(
     if (!stored || stored.revokedAt || stored.expiresAt < new Date()) {
       throw AppError.unauthorized('Refresh token expired or revoked');
     }
-
     const user = await prisma.user.findUnique({ where: { id: payload.sub }, include: { tenant: true } });
     if (!user || !user.isActive) throw AppError.unauthorized('Invalid refresh token');
+    if (user.tenant.status === 'SUSPENDED') throw AppError.unauthorized('This account has been suspended');
 
     // Rotate: revoke old, issue new
     await prisma.refreshToken.update({ where: { id: stored.id }, data: { revokedAt: new Date() } });

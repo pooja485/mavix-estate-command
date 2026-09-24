@@ -22,11 +22,33 @@ import { env } from '../config/env';
  * nothing else in the codebase needs to change.
  */
 export async function sendEmail(to: string, subject: string, html: string): Promise<void> {
-  if (env.NODE_ENV === 'production' && !process.env.EMAIL_PROVIDER_CONFIGURED) {
-    logger.warn(
-      { to, subject },
-      'sendEmail() is still using the console-log stub in production — configure a real email provider (see src/utils/mailer.ts)'
-    );
+  if (!env.RESEND_API_KEY) {
+    if (env.NODE_ENV === 'production') {
+      logger.warn(
+        { to, subject },
+        'sendEmail() is still using the console-log stub in production — set RESEND_API_KEY to send real email'
+      );
+    }
+    logger.info({ to, subject, html }, '📧 Email (stub — not actually sent, see src/utils/mailer.ts)');
+    return;
   }
-  logger.info({ to, subject, html }, '📧 Email (stub — not actually sent, see src/utils/mailer.ts)');
+
+  const res = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${env.RESEND_API_KEY}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ from: env.EMAIL_FROM, to, subject, html }),
+  });
+
+  if (!res.ok) {
+    const body = await res.text().catch(() => '');
+    logger.error({ to, subject, status: res.status, body }, 'Resend email send failed');
+    // Don't throw — a failed email (e.g. password reset) shouldn't crash the request
+    // that triggered it. The generic caller-facing message stays the same either way.
+    return;
+  }
+
+  logger.info({ to, subject }, '📧 Email sent via Resend');
 }

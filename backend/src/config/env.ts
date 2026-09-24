@@ -17,6 +17,8 @@ const envSchema = z.object({
   LOG_LEVEL: z.string().default('info'),
   PLATFORM_ADMIN_KEY: z.string().optional(),
   SENTRY_DSN: z.string().optional(),
+  RESEND_API_KEY: z.string().optional(),
+  EMAIL_FROM: z.string().default('MAVIX Estate Command <onboarding@resend.dev>'),
 });
 
 const parsed = envSchema.safeParse(process.env);

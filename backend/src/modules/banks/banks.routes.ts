@@ -10,4 +10,9 @@ const schema = z.object({
   project: z.string().default('Corporate'),
 });
 
-export default buildCrudRouter({ model: prisma.bankAccount, createSchema: schema, orderBy: { bankName: 'asc' } });
+export default buildCrudRouter({
+  model: prisma.bankAccount,
+  createSchema: schema,
+  orderBy: { bankName: 'asc' },
+  writeRoles: ['SUPER_ADMIN', 'MANAGING_DIRECTOR', 'CFO'],
+});
